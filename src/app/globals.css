@@ -1,0 +1,1422 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+*::before,
+*::after {
+  display: none;
+}
+
+[class^='poseditor-']::before,
+[class^='poseditor-']::after {
+  display: inline !important;
+}
+
+.configurator-checkbox.checked::before,
+.configurator-checkbox.checked::after {
+  display: inline !important;
+}
+
+.custom-shadow-top-only {
+  border-top: 1px solid #20202020;
+  -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.125);
+  -moz-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.125);
+  box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.125);
+}
+
+body.hover-cursor-on * {
+  cursor: none !important;
+}
+
+body.return-cursor-on * {
+  cursor: none !important;
+}
+
+body.select-cursor-on * {
+  cursor: none !important;
+}
+html[lang='ko'] .kr-text {
+  font-family: 'noto-kr', sans-serif !important;
+}
+html[lang='ko'] table tbody tr td div {
+  font-family: 'noto-kr', sans-serif !important;
+}
+html[lang='ko'],
+html[lang='ko'] p,
+html[lang='ko'] h1,
+html[lang='ko'] h2,
+html[lang='ko'] h4,
+html[lang='ko'] h5,
+html[lang='ko'] li,
+html[lang='ko'] span:not([class^='poseditor-']),
+html[lang='ko'] a,
+html[lang='ko'] .korean-font {
+  font-family: 'noto-kr', sans-serif !important;
+}
+html[lang='ko'] h3 {
+  font-family: 'noto-kr', sans-serif;
+}
+html[lang='ko'] .hs-form .hs-fieldtype-text .input input,
+html[lang='ko'] .hs-form .hs-fieldtype-number .input input,
+html[lang='ko'] .hs-form .hs-fieldtype-phonenumber .input input,
+html[lang='ko'] .hs-form .hs-fieldtype-select .input select {
+  font-family: 'noto-kr', sans-serif !important;
+}
+
+htm[lang='en-ko'],
+htm[lang='en-us'],
+htm[lang='en'],
+htm[lang='en-ko'] body,
+htm[lang='en-us'] body,
+htm[lang='en'] body,
+htm[lang='en-ko'] body .promo-font,
+htm[lang='en'] body .promo-font,
+htm[lang='en-us'] body .promo-font,
+html[lang='ko'] .promo-font,
+html[lang='ko'] .promo-font h2,
+html[lang='ko'] .promo-font p,
+html[lang='ko'] span.promo-font {
+  font-family: prometo, sans-serif !important;
+}
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+  user-select: none;
+  outline: none !important;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+html[lang='ko'] * {
+  word-break: keep-all;
+}
+main {
+  overflow-x: hidden;
+}
+@font-face {
+  font-family: 'NotoSansKRRegular';
+  src: url('../assets/fonts/NotoSansKR-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.swiper-thumb .swiper-slide-thumb-active span {
+  display: block;
+  margin: 4px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #d10024;
+  border-left: 2px solid #d10024;
+  transform: rotate(135deg);
+}
+.swiper-thumb .swiper-slide-thumb-active span:after {
+  content: '';
+  display: block;
+  width: 2px;
+  height: 11px;
+  background-color: #d10024;
+  transform: rotate(-45deg) translate(3px, 1px);
+  left: 0;
+  top: 0;
+}
+.gm-style .gm-style-iw-c {
+  top: 62px;
+  left: 220px;
+  border-radius: 0px !important;
+  box-shadow: none !important;
+  width: 366px;
+}
+.gm-style .gm-style-iw-tc:after {
+  background: white;
+  -webkit-clip-path: polygon(0 0, 50% 100%, 100% 0);
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  content: '';
+  height: 12px;
+  left: 31px;
+  position: absolute;
+  display: block;
+  top: 20px;
+  width: 25px;
+  box-shadow: none !important;
+  transform: rotate(90deg);
+}
+.gmnoprint,
+.gm-fullscreen-control {
+  display: none !important;
+}
+.hs-form .hs-fieldtype-text,
+.hs-form .hs-fieldtype-phonenumber,
+.hs-form .hs-fieldtype-number,
+.hs-form .hs-fieldtype-select {
+  position: relative;
+}
+
+.hs-form .hs-fieldtype-text label,
+.hs-form .hs-fieldtype-phonenumber label,
+.hs-form .hs-fieldtype-number label,
+.hs-form .hs-fieldtype-select label {
+  position: absolute;
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hs-form .hs-fieldtype-select .input select {
+  appearance: none;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAICAYAAAAm06XyAAAAAXNSR0IArs4c6QAAAJZJREFUGBmVjTEOglAQRD80JCQUNhZ4IjsKj0DvAeztpeYI9noFSiusKDmCrb5nMDGBoEzy/mZnZiEKIdSQww4e8EsphTP0MU8CW7hABnMyv4J974If8O9PaGAFU9I3t2ffu7ci3goMbrCGb7nrm5/A/khHHAstbIbUeQd981kdSC12UAzTXf8v7Wl58MF9kUraPTgn9QITiB8ghuAvqAAAAABJRU5ErkJggg==)
+    96% center no-repeat;
+}
+
+.hs-form .hs-fieldtype-text .input input,
+.hs-form .hs-fieldtype-number .input input,
+.hs-form .hs-fieldtype-phonenumber .input input,
+.hs-form .hs-fieldtype-select .input select {
+  height: 42px;
+  border-bottom: 1px solid #ccc;
+  width: 100% !important;
+  padding-left: 155px;
+  /* padding-right: 42px; */
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.hs-form .hs-fieldtype-select .input select {
+  -webkit-appearance: initial;
+}
+.hs-main-font-element p span {
+  display: none;
+}
+
+.hs-form fieldset.form-columns-1 .hs-input {
+  min-width: 100%;
+}
+
+.hs-form fieldset.form-columns-1 select.hs-input,
+.hs-form .hs_select_local_dealership select.hs-input {
+  padding-right: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hs-form .hs_message label {
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hs-form .hs_message textarea {
+  height: 240px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.hs-form .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_ span {
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.hs-form .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_ .input {
+  margin-top: 30px;
+}
+.hs-form .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_ .inputs-list {
+  display: flex !important;
+  column-gap: 30px;
+}
+.hs-form
+  .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_
+  .input
+  .hs-form-radio {
+  width: auto;
+}
+.hs-form
+  .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_
+  .input
+  .hs-form-radio
+  label {
+  display: flex !important;
+  column-gap: 12px;
+}
+.hs-form
+  .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_
+  .input
+  .hs-form-radio
+  label
+  span {
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400 !important;
+  line-height: 24px;
+  font-family: noto-sans, sans-serif;
+  letter-spacing: 0px !important;
+}
+.hs-form fieldset.form-columns-1 input[type='radio'] {
+  min-width: auto;
+  width: 20px !important;
+  height: 20px;
+}
+.hs-form fieldset {
+  max-width: 100% !important;
+  margin-top: 42px;
+}
+.hs-form .hs_select_your_distributor_dealership {
+  padding-bottom: 0px;
+  width: 50%;
+  margin-top: 37px;
+}
+.hs-form fieldset .hs-fieldtype-textarea label {
+  display: block;
+  margin-bottom: 10px;
+}
+.hs-error-msgs {
+  top: 4px;
+  position: relative;
+}
+.hs-error-msgs label {
+  font-size: 13px !important;
+  font-family: noto-sans;
+  font-weight: 300 !important;
+  color: #d10024;
+  letter-spacing: 0px !important;
+  text-transform: none !important;
+}
+
+.hs-form-checkbox label span:before,
+.hs-form-booleancheckbox label span:before {
+  content: '';
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 0px;
+}
+.hs-form-checkbox-display input,
+.hs-form-booleancheckbox-display input {
+  padding: 0;
+  height: auto;
+  width: auto;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+}
+.hs-form-checkbox label input:checked + span:after,
+.hs-form-booleancheckbox label input:checked + span:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 6px;
+  height: 14px;
+  border: solid #eb0028;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.hs-form .hs-dependent-field .multi-container .hs-form-checkbox-display > span,
+.hs-form .legal-consent-container .hs-dependent-field .hs-form-booleancheckbox-display > span {
+  margin-left: 0px !important;
+  position: relative;
+  letter-spacing: 0 !important;
+}
+
+.hs-form .hs-fieldtype-checkbox .multi-container {
+  padding-top: 5px;
+  margin-bottom: 40px;
+}
+.hs-form .hs-fieldtype-checkbox .multi-container li {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.legal-consent-container .hs-form-booleancheckbox-display p {
+  position: relative;
+  display: inline-table !important;
+  max-width: 628px;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  font-family: noto-sans, sans-serif;
+}
+.hs-form .hs_submit input {
+  width: 240px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  background: #c91820;
+  margin-top: 60px;
+  text-align: center;
+  font-family: Prometo;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  font-family: prometo, sans-serif;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.global-location .highlight {
+  fill: rgba(190, 55, 55, 0.7) !important;
+}
+.make-transparent {
+  opacity: 0.1;
+}
+.country-pin {
+  cursor: pointer;
+}
+.tym-form .hs-form-field,
+.tym-form .hs-form-field {
+  width: 50%;
+  float: left;
+  color: #1a1a1a;
+}
+
+.tym-form .hs_select_inquiry_type {
+  width: 100%;
+  margin-bottom: 72px;
+}
+
+.tym-form .hs-main-font-element {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  font-size: 18px;
+}
+.tym-form .hs-main-font-element a {
+  text-decoration: underline;
+}
+.tym-form .hs-main-font-element a:hover {
+  text-decoration: none;
+}
+.tym-form .hs-main-font-element ul {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  list-style: disc;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.tym-form .hs_error_rollup {
+  display: none;
+}
+.tym-form .hs_message {
+  margin-top: 42px;
+}
+.tym-form .hs_message {
+  width: 100%;
+}
+.tym-form .hs_message textarea {
+  margin-top: 13px;
+  width: 100%;
+}
+.tym-form .hs-dependent-field .hs-fieldtype-radio {
+  width: 100%;
+}
+.tym-form .hs-dependent-field .hs-fieldtype-radio .input ul,
+.tym-form .hs-fieldtype-radio .input ul {
+  display: flex;
+  column-gap: 80px;
+  margin-top: 30px;
+}
+.tym-form .hs-dependent-field .hs-fieldtype-radio .input ul li label,
+.tym-form .hs-fieldtype-radio .input ul li label {
+  display: flex;
+  column-gap: 13px;
+}
+.tym-form .hs-dependent-field .hs-fieldtype-radio .input ul li label span,
+.tym-form .hs-fieldtype-radio .input ul li label span {
+  font-weight: 400;
+  font-family: noto-sans, sans-serif;
+}
+
+.tym-form .hs-fieldtype-checkbox > label > span,
+.tym-form .hs-dependent-field > div > label > span {
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+}
+.tym-form .hs_tractor_hours input {
+  padding-left: 180px !important;
+}
+
+.tym-form .hs-fieldtype-checkbox .hs-form-checkbox label span,
+.tym-form .legal-consent-container p {
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.tym-form .legal-consent-container p a {
+  color: #d10024;
+  text-decoration: underline;
+}
+.tym-form .hs_submit {
+  display: flex;
+  width: 100%;
+}
+.tym-form .hs_submit input {
+  margin-top: 40px !important;
+  font-size: 15px !important;
+  width: 200px !important;
+}
+.hs_are_you_currently_an_agriculture_equipment_dealer_,
+.hs_if_yes_what_tractor_brand_ {
+  width: 100% !important;
+}
+.hs-fieldtype-booleancheckbox {
+  width: 100% !important;
+}
+.hs-form-booleancheckbox p {
+  text-transform: none;
+}
+.hs-form
+  .hs-fieldtype-text
+  .input
+  #if_yes_what_tractor_brand_-15fcff23-ecd1-42fe-876e-a34d3570da8a {
+  padding-left: 250px;
+}
+
+/*.home-page-product-slider .swiper-slide-active,*/
+/*.home-page-product-slider .swiper-slide-next,*/
+/*.home-page-product-slider .swiper-slide-prev {*/
+/*  opacity: 1;*/
+/*}*/
+
+.pos-jobsite-container #posweb-player .posweb-player-wrapper {
+  margin-top: 0;
+}
+
+.build-your-own #posweb-player .posweb-player-wrapper {
+  margin-top: 100px;
+}
+
+.build-your-own .modal.display-block {
+  top: 40px !important;
+}
+
+.build-your-own .content-panel {
+  height: 70% !important;
+  top: 55% !important;
+}
+
+#request-a-quote-form .submitted-message {
+  position: absolute;
+  top: 80px;
+  height: 100vh;
+  background-color: #fff;
+  width: 100%;
+  display: block;
+  z-index: 20;
+  padding-top: 40px;
+}
+.tym-form .hs_cyber_petition_checkbox_list {
+  column-count: 2;
+  width: 100%;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox-display span {
+  font-size: 15px;
+  font-family: noto-sans;
+  color: #000;
+  font-weight: 400;
+  line-height: 24px;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox {
+  padding-bottom: 8px;
+}
+#label-cyber_petition_checkbox_list-f8c73d00-9a67-45c3-9427-2f96609e3159 span {
+  display: none;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox input {
+  padding: 0;
+  height: auto;
+  width: auto;
+  margin-bottom: 0;
+  display: none;
+  cursor: pointer;
+  float: left;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox label span {
+  margin-left: 0px !important;
+  position: relative;
+  letter-spacing: 0 !important;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox label span:before {
+  content: '';
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 10px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 0px;
+}
+.tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox label input:checked + span:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 5px;
+  left: 9px;
+  width: 6px;
+  height: 14px;
+  border: solid #d10024;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+.tym-form #selected_file-f8c73d00-9a67-45c3-9427-2f96609e3159 {
+  height: 42px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+  padding-left: 155px;
+  padding-right: 42px;
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+.tym-form .hs_selected_file {
+  position: relative;
+}
+.tym-form .hs-zip .hs-field-desc {
+  position: absolute;
+  top: -13px;
+  left: 0;
+  font-size: 12px;
+}
+.tym-form .hs_selected_file .hs-field-desc {
+  display: block;
+  position: absolute;
+  bottom: -29px;
+}
+.tym-form #label-selected_file-f8c73d00-9a67-45c3-9427-2f96609e3159 {
+  position: absolute;
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  top: 16%;
+}
+.cyber-petition-form .hs-form-booleancheckbox {
+  padding-top: 60px;
+}
+.success-stories-body .html-content,
+.success-stories-body .single-image {
+  max-width: 928px !important;
+}
+.video-wrapper video {
+  inset: 50% 0px 0px 50%;
+  border: none;
+  outline: none;
+  width: 100vw;
+  min-height: 64vh;
+  min-width: 177.77vh;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+}
+
+.video-wrapper video {
+  height: 56.25vw;
+}
+
+.video-home-wrapper video {
+  height: 100vw;
+  min-height: 100vh;
+}
+.css-w54w9q-singleValue {
+  text-align: left;
+}
+
+.part-view a {
+  @apply font-bold underline;
+}
+
+.tym-form .hs_tractor_serial_number #tractor_serial_number-8126ecbb-faf0-4610-8f10-df27dd7e8a33 {
+  padding-left: 250px !important;
+}
+.legal-consent-container ~ .hs_recaptcha {
+  margin-bottom: 20px;
+}
+.tym-form .hs_tractor_serial_number .hs-input {
+  padding-left: 250px !important;
+}
+
+input[type='radio'] {
+  accent-color: #eb0028;
+}
+
+.arrow-right-svg {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M6 13L12 7L6 1' stroke='%23C71619' strokeWidth='2.5'/%3E%3Cpath d='M11 7H5.96046e-08' stroke='%23C71619' strokeWidth='2'/%3E%3C/svg%3E");
+  width: 12px;
+  height: 100%;
+  margin-right: 4px;
+}
+
+.featured-slider .swiper-slide {
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.featured-slider .swiper-slide.swiper-slide-active {
+  opacity: 1;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  html[lang='ko'] .tym-form .hs_address_1,
+  html[lang='ko'] .tym-form .hs_address_2,
+  html[lang='ko'] .tym-form .hs_select_local_dealership {
+    margin-top: 0px !important;
+  }
+
+  .featured-slider .swiper-slide.swiper-slide-next {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .slider-modal-opened {
+    overflow: hidden;
+  }
+
+  .slider-modal-opened .map-desktop {
+    overflow: visible !important;
+  }
+
+  .slider-modal-opened .custom-info-inside {
+    overflow: hidden !important;
+  }
+
+  .slider-modal-opened .popup-slider-wrapper {
+    margin: 0 !important;
+  }
+
+  .slider-modal-opened section,
+  .slider-modal-opened .custom-info {
+    z-index: 1000;
+  }
+}
+
+.hs_are_you_currently_an_agriculture_equipment_dealer_ {
+  margin-top: 32px !important;
+}
+
+.faq-list ul li {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.gm-style-iw-chr {
+  display: none;
+}
+
+.gm-style-iw-d {
+  padding-top: 10px;
+}
+
+.html-content table tr td:nth-child(2) {
+  color: #c91820;
+  font-weight: 800;
+}
+
+.tym-form .hs_email .hs-error-msgs:nth-of-type(2) {
+  display: none;
+}
+
+#ProductDetailsVideo + #TractorsPinsWithItems .bg-cherry + div {
+  padding-top: 0 !important;
+}
+
+.product #ProductDetailsVideo + #TractorsPinsWithItems {
+  padding-top: 40px !important;
+}
+
+#TractorsPinsWithItems .bg-cherry {
+  display: none;
+}
+
+.footer-text-content a {
+  color: #d10024;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.aside-menu-item:hover {
+  width: 200px;
+}
+
+.aside-menu-item-ko:hover {
+  width: 240px;
+}
+
+.html-content-article a {
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_what_tractor_are_you_interested_in,
+.sub-headline .tym-form .hs-form-field.hs_companies_floor_plan {
+  width: 100%;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_companies_floor_plan .hs-input {
+  height: 100px;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_if_yes_what_tractor_brand_ .hs-input,
+.sub-headline .tym-form .hs-form-field.hs_what_tractor_are_you_interested_in .hs-input {
+  height: auto;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_what_tractor_are_you_interested_in label {
+  position: relative;
+  top: 0;
+  margin-bottom: 13px;
+  display: block;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_if_yes_what_tractor_brand_ .hs-input,
+.sub-headline .tym-form .hs-form-field.hs_what_tractor_are_you_interested_in .hs-input,
+.sub-headline .tym-form .hs-form-field.hs_companies_floor_plan .hs-input {
+  border: 1px solid #ccc;
+  padding: 20px;
+  font-family: noto-sans, sans-serif;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  width: 100%;
+}
+
+.sub-headline .tym-form .hs-form-field.hs_address_1 {
+  clear: left;
+}
+
+.sub-headline .tym-form .hs-form-field.hs-fieldtype-radio {
+  display: flex;
+  gap: 40px;
+  margin-top: 0;
+}
+
+.sub-headline .tym-form .hs-dependent-field .hs-fieldtype-radio .input ul,
+.sub-headline .tym-form .hs-fieldtype-radio .input ul {
+  margin-top: 0;
+  column-gap: 40px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.sub-headline .tym-form .hs-dependent-field .hs-fieldtype-radio .input ul li label,
+.sub-headline .tym-form .hs-fieldtype-radio .input ul li label {
+  align-items: center;
+  height: 24px;
+}
+
+.sub-headline .tym-form .hs-fieldtype-text label {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  top: 0;
+}
+
+.sub-headline .tym-form .hs-fieldtype-text.hs-what_tractor_are_you_interested_in label {
+  height: auto;
+}
+
+.sub-headline .tym-form .hs-country + .hs-dependent-field .multi-container,
+.sub-headline .tym-form .hs-other,
+.sub-headline .tym-form .hs-country + .hs-dependent-field .hs-fieldtype-checkbox {
+  margin-bottom: 0;
+}
+
+.bg-platinum-new {
+  background: var(
+    --Platinum-popup,
+    linear-gradient(226deg, #e7eaf2 29.88%, #fff 52.32%, #cbd0d7 97.87%)
+  );
+}
+
+.bg-gold {
+  background:
+    linear-gradient(
+      86deg,
+      rgba(255, 222, 127, 0.5) 6.53%,
+      rgba(255, 229, 135, 0.5) 37.58%,
+      rgba(246, 205, 81, 0.5) 90.33%
+    ),
+    #e5b13b;
+}
+
+.card-button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.popup-slider .swiper-button-next,
+.popup-slider .swiper-button-prev,
+.featured-slider .swiper-button-next,
+.featured-slider .swiper-button-prev {
+  width: 44px;
+  height: 42px;
+  top: 50%;
+  position: absolute;
+}
+
+.popup-slider .swiper-button-prev:before,
+.featured-slider .swiper-button-prev:before {
+  transform: rotate(135deg);
+}
+
+.popup-slider .swiper-button-next:before,
+.featured-slider .swiper-button-next:before {
+  transform: rotate(-45deg);
+}
+
+.popup-slider .swiper-button-prev:before,
+.popup-slider .swiper-button-next:before {
+  border: solid white;
+}
+
+.featured-slider .swiper-button-prev:before,
+.featured-slider .swiper-button-next:before {
+  border: solid black;
+}
+
+.popup-slider .swiper-button-prev:before,
+.popup-slider .swiper-button-next:before,
+.featured-slider .swiper-button-prev:before,
+.featured-slider .swiper-button-next:before {
+  content: '';
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 14.5px;
+}
+
+.featured-card-image:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  z-index: 5;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 70%, #000 100%);
+}
+
+.slide-card > a:before {
+  position: absolute;
+  content: '';
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 100;
+}
+
+.mobile-cta-wrapper {
+  background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+@media (min-width: 992px) {
+  .hs-form .hs-fieldtype-text label,
+  .hs-form .hs-fieldtype-phonenumber label,
+  .hs-form .hs-fieldtype-number label,
+  .hs-form .hs-fieldtype-select label {
+    height: 42px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sub-headline .tym-form .hs-form-field.hs-fieldtype-radio {
+    margin-bottom: 15px;
+  }
+  .sub-headline .hs-form .field .input input {
+    padding-left: 165px;
+  }
+
+  .sub-headline .hs-form .hs-other .input input {
+    padding-left: 75px;
+  }
+
+  .sub-headline .hs-form .field label span {
+    position: relative;
+    line-height: 22px;
+  }
+
+  .sub-headline .tym-form .hs-country + .hs-dependent-field {
+    clear: both;
+  }
+
+  .sub-headline .tym-form .hs-country + .hs-dependent-field + div {
+    padding-top: 40px;
+  }
+
+  .sub-headline .tym-form .hs-country + .hs-dependent-field + div,
+  .sub-headline .tym-form .hs-country + .hs-dependent-field .hs-form-field {
+    float: none;
+    width: 100%;
+  }
+
+  .sub-headline .tym-form .hs-fieldtype-checkbox .multi-container {
+    column-count: 3;
+  }
+
+  .hs-form .hs-form-field {
+    margin-bottom: 40px;
+  }
+  .hs_recaptcha {
+    margin-bottom: 20px !important;
+  }
+
+  .tym-form .hs_email,
+  .tym-form .hs_phone,
+  .tym-form .hs_email,
+  .tym-form .hs_phone {
+    margin-bottom: 41px;
+  }
+  .tym-form .hs-dependent-field .hs-fieldtype-radio {
+    margin-top: 20px;
+  }
+
+  .tym-form .hs_address_1,
+  .tym-form .hs_address_2 {
+    margin-top: 37px;
+  }
+  .tym-form .legal-consent-container p,
+  .tym-form .legal-consent-container p {
+    margin-left: 8px !important;
+  }
+  .cyber-petition-form .hs_selected_file {
+    margin-top: 29px;
+  }
+  .legal-consent-container .field.hs-form-field {
+    margin-top: 20px;
+    margin-bottom: 20px !important;
+  }
+
+  #request-a-quote-form .hs-form fieldset:nth-child(2) {
+    padding-bottom: 0px;
+  }
+
+  #request-a-quote-form .hs-form .hs-form-field.hs-fieldtype-textarea {
+    margin-bottom: 72px;
+  }
+
+  #request-a-quote-form .hs-form .hs-form-field.hs-fieldtype-radio {
+    margin-bottom: 42px;
+  }
+
+  .hs-form fieldset.form-columns-2 .input,
+  .tym-form .hs-form-field .input,
+  .tym-form .hs-form-field .input {
+    padding-right: 44px;
+  }
+  .tym-form .hs_select_inquiry_type select {
+    width: calc(50% - 22px);
+  }
+}
+
+@media (min-width: 1440px) {
+  .popup-slider .swiper-button-prev,
+  .featured-slider .swiper-button-prev {
+    left: -82px;
+  }
+
+  .popup-slider .swiper-button-next,
+  .featured-slider .swiper-button-next {
+    right: -82px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .popup-slider .swiper-button-prev,
+  .featured-slider .swiper-button-prev {
+    left: -62px;
+  }
+  .popup-slider .swiper-button-next,
+  .featured-slider .swiper-button-next {
+    right: -62px;
+  }
+}
+
+@media (max-width: 1279px) {
+  .popup-slider .swiper-button-prev,
+  .featured-slider .swiper-button-prev {
+    left: 0;
+  }
+
+  .popup-slider .swiper-button-next,
+  .featured-slider .swiper-button-next {
+    right: 0;
+  }
+
+  .popup-slider .swiper-button-next,
+  .popup-slider .swiper-button-prev,
+  .featured-slider .swiper-button-prev,
+  .featured-slider .swiper-button-next {
+    width: 36px;
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  .popup-slider .swiper-button-prev:before,
+  .popup-slider .swiper-button-next:before,
+  .featured-slider .swiper-button-prev:before,
+  .featured-slider .swiper-button-next:before {
+    padding: 8px;
+  }
+
+  .popup-slider .swiper-button-prev:before,
+  .featured-slider .swiper-button-prev:before {
+    margin-right: -8px;
+  }
+
+  .popup-slider .swiper-button-next:before,
+  .featured-slider .swiper-button-next:before {
+    margin-left: -8px;
+  }
+}
+
+@media (max-width: 1024px) {
+  #request-a-quote-form .submitted-message {
+    top: 50px !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .sub-headline .hs-form .field .input select,
+  .sub-headline .hs-form .field .input input {
+    padding-left: 135px;
+  }
+
+  .sub-headline .hs-form .hs-other .input input {
+    padding-left: 52px;
+  }
+
+  .sub-headline .tym-form .hs-country + .hs-dependent-field + div {
+    padding-top: 20px;
+  }
+
+  .hs-form .hs-fieldtype-checkbox .multi-container {
+    margin-bottom: 0px;
+  }
+
+  .hs-form .hs-fieldtype-text .input input,
+  .hs-form .hs-fieldtype-number .input input,
+  .hs-form .hs-fieldtype-phonenumber .input input,
+  .hs-form .hs-fieldtype-select .input select {
+    font-size: 13px;
+  }
+
+  .hs-form .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_ span,
+  .tym-form .hs-fieldtype-checkbox > label > span,
+  .tym-form .hs-dependent-field > div > label > span,
+  .hs-form .hs-fieldtype-text label,
+  .hs-form .hs-fieldtype-phonenumber label,
+  .hs-form .hs-fieldtype-number label,
+  .hs-form .hs-fieldtype-select label {
+    font-size: 12px;
+    letter-spacing: 1px;
+    top: 30%;
+  }
+  .hs-form .hs-fieldtype-text label,
+  .hs-form .hs-fieldtype-phonenumber label,
+  .hs-form .hs-fieldtype-number label,
+  .hs-form .hs-fieldtype-select label {
+    position: absolute;
+  }
+
+  .hs-form
+    .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_
+    .input
+    .hs-form-radio
+    label
+    span,
+  .hs-form .hs_message label,
+  .legal-consent-container .hs-form-booleancheckbox-display p {
+    font-size: 12px;
+    line-height: 1.625;
+  }
+  .tym-form .hs-form-field {
+    width: 100% !important;
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .tym-form .hs_select_inquiry_type {
+    margin-bottom: 20px !important;
+  }
+  .tym-form .hs_select_inquiry_type select {
+    width: 100% !important;
+  }
+  .tym-form .hs_message {
+    margin-top: 10px !important;
+  }
+  .hs-form .hs_message textarea {
+    height: 150px !important;
+    padding: 15px;
+    font-size: 13px;
+  }
+  .sub-headline .tym-form .hs-form-field .hs-input {
+    font-size: 13px !important;
+  }
+  .tym-form .hs_submit input {
+    margin-top: 5px !important;
+  }
+  .tym-form .hs-dependent-field .hs-fieldtype-radio .input ul,
+  .tym-form .hs-fieldtype-radio .input ul {
+    column-gap: 20px !important;
+    margin-top: 10px !important;
+  }
+  .tym-form .hs-fieldtype-checkbox .hs-form-checkbox label span,
+  .tym-form .hs-dependent-field label span {
+    font-size: 12px !important;
+    letter-spacing: 0 !important;
+  }
+  .tym-form .hs_cyber_petition_checkbox_list {
+    column-count: 1 !important;
+  }
+  .tym-form .hs-form-booleancheckbox span {
+    position: relative;
+  }
+  .cyber-petition-form .hs-form-booleancheckbox {
+    padding-top: 20px !important;
+  }
+  .tym-form .hs_tractor_serial_number .input .hs-input {
+    padding-left: 200px !important;
+  }
+  .hs-form-checkbox label input:checked + span:after,
+  .hs-form-booleancheckbox label input:checked + span:after {
+    top: 2px;
+    left: 8px;
+  }
+  .tym-form .hs-dependent-field > div.hs-other > label > span {
+    top: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .hs-form fieldset.form-columns-2 .hs-form-field {
+    width: 100% !important;
+    margin-top: 20px;
+  }
+  .hs-form fieldset {
+    margin-top: 0px;
+  }
+  .hs-form .hs_select_your_distributor_dealership {
+    padding-right: 0px;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .hs-form .hs_are_you_interested_in_financing_your_new_tractor_directly_with_tym_ .input {
+    margin-top: 20px;
+  }
+  .legal-consent-container .hs-form-booleancheckbox-display p {
+    max-width: calc(100% - 35px);
+  }
+  .legal-consent-container .hs-form-booleancheckbox-display > span {
+    display: block;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+  .hs-form .hs_submit input {
+    margin-top: 20px;
+  }
+  .hs-form
+    .hs-fieldtype-text
+    .input
+    #if_yes_what_tractor_brand_-15fcff23-ecd1-42fe-876e-a34d3570da8a {
+    padding-left: 180px !important;
+  }
+
+  .na-popup {
+    position: fixed !important;
+    inset: 100px auto auto !important;
+    transform: none !important;
+    margin: auto !important;
+    max-width: 100% !important;
+    border-radius: 25px 25px 0 0 !important;
+    overflow: hidden;
+  }
+
+  .na-popup .mobile-container-adjustment {
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .custom-info {
+    top: 800px;
+    position: fixed;
+    z-index: 1001;
+    border-radius: 25px 25px 0 0;
+    transition: all 0.3s;
+    overflow: hidden;
+  }
+
+  .info-window-open .custom-info {
+    top: 100px;
+    margin-top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .custom-info-container {
+    overflow-y: auto;
+  }
+  .custom-info-inside {
+    padding-bottom: 60px;
+  }
+
+  .mobile-cta-adjustment {
+    z-index: 100;
+  }
+
+  .custom-info .mobile-cta-adjustment,
+  .na-popup .mobile-cta-adjustment {
+    background: linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0 20px 20px;
+  }
+
+  .custom-info .btn-close,
+  .na-popup .btn-close {
+    right: 18px;
+    top: 20px;
+    position: absolute;
+    z-index: 100;
+  }
+
+  .custom-info .btn-close {
+    background: #000 !important;
+  }
+
+  .custom-info .btn-close svg path {
+    stroke: #fff !important;
+  }
+
+  .mobile-wrapper .map-view:before {
+    content: '';
+    display: block;
+    transition: all 0.3s;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    position: fixed;
+    z-index: 100;
+    background: transparent;
+    pointer-events: all;
+  }
+
+  .info-window-open .mobile-wrapper .map-view:before {
+    background: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+  }
+
+  .info-window-open .map-view {
+    z-index: 10005 !important;
+  }
+
+  .info-window-open main section {
+    z-index: 1001;
+  }
+
+  .info-window-open {
+    overflow: hidden !important;
+  }
+
+  .bg-desktop-only.bg-platinum-new {
+    background: none;
+  }
+}
+
+@media (max-width: 480px) {
+  #request-a-quote-form .submitted-message {
+    padding-top: 20px !important;
+  }
+  .tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox-display span {
+    padding-left: 0px !important;
+  }
+  .tym-form .hs_cyber_petition_checkbox_list .hs-form-checkbox label input:checked + span:after {
+    left: 9px !important;
+  }
+}
