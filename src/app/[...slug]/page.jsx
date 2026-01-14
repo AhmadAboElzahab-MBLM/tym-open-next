@@ -1,6 +1,7 @@
 import React from 'react';
-import { get, isEmpty, join } from 'lodash';
+import { get, trimStart, isEmpty } from 'lodash';
 import {
+  getAllSlugs,
   getByContentType,
   getByPath,
   getByContentTypeSpecificData,
@@ -12,32 +13,21 @@ import DetailsSuccessStories from '@/components/page-structures/details-success-
 import DetailsPage from '@/components/page-structures/details-page';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
+import { LANG, REGION, LOCALE } from '@/lib/runtime-locale';
 
 async function getContentByParams(params) {
   try {
-    const regions = {
-      en: 'International',
-      ko: '한국',
-      'en-ko': 'South Korea',
-      'en-us': 'North America',
-    };
-
-    const lang = get(params, 'slug[0]', '');
-    const region = regions[lang];
-    const locale = lang === 'ko' ? 'ko' : 'en-us';
-    const path = join(params.slug, '/');
+    const path = params.slug.join('/');
 
     const [data, settings, translations] = await Promise.all([
-      getByPath(path, region),
-      getByContentType('settings', region, locale, lang).then((_settings) => _settings[0]),
-      getByContentType('translations', region, locale, lang).then(
-        (_translations) => _translations[0],
-      ),
+      getByPath(path, REGION),
+      getByContentType('settings', REGION, LOCALE, LANG).then((r) => r[0]),
+      getByContentType('translations', REGION, LOCALE, LANG).then((r) => r[0]),
     ]);
 
     if (isEmpty(data)) throw new Error('No data fetched from Umbraco.');
 
-    return { data, settings, translationItems: translations, region, lang, locale };
+    return { data, settings, translationItems: translations, region: REGION, lang: LANG, locale: LOCALE };
   } catch (error) {
     return {
       data: null,
@@ -50,20 +40,28 @@ async function getContentByParams(params) {
   }
 }
 
-
-// Only pre-build home pages, other pages will be generated on-demand and cached in R2
-export const dynamicParams = true;
-export const dynamic = 'force-static'; // Force static generation for dynamic pages (caches in R2)
-export const revalidate = false; // No time-based revalidation, only on-demand via API
-
 export async function generateStaticParams() {
-  // Only pre-build home pages for each region
-  return [
-    { slug: ['en'] },
-    { slug: ['en-us'] },
-    { slug: ['en-ko'] },
-    { slug: ['ko'] },
+  const contentTypes = [
+    'home',
+    'page',
+    'product',
+    'customerStory',
+    'mediaItem',
+    'howTo',
+    'promotion',
+    'preOwned',
+    'media',
   ];
+
+  const content = await Promise.all(
+    contentTypes.map((type) => getAllSlugs(type, LOCALE))
+  );
+
+  return content.flat().map((page) => ({
+    slug: trimStart(page.route.path, '/')
+      .replace(/^en\/|^ko\//, '') // normalize
+      .split('/'),
+  }));
 }
 
 export default async function Page({ params }) {
@@ -71,16 +69,15 @@ export default async function Page({ params }) {
 
   const { data, settings, translationItems, region, lang, locale } =
     await getContentByParams(resolvedParams);
+
   const { product, customerStory, promotion, mediaItem, howTo } = await handleSpecificData(
     data,
     region,
     locale,
-    lang,
+    lang
   );
 
   const navigationProducts = await fetchHeaderProducts(lang);
-
-  // Fetch all pre-owned products array (similar to how products are fetched)
   const allPreOwnedProducts = await getByContentTypeSpecificData('preOwned', region, locale, lang);
 
   const translations = get(translationItems, 'properties.translationItems.items', []);
@@ -89,7 +86,6 @@ export default async function Page({ params }) {
   const bodyData = get(data, 'properties', []);
   const mainClass = 'min-h-full';
 
-  // Common props
   const commonProps = {
     locale,
     region,
@@ -114,7 +110,6 @@ export default async function Page({ params }) {
       return <BasicPage data={blocks} {...commonProps} preOwnedProducts={allPreOwnedProducts} />;
     case 'product':
       return <ProductsPage data={data} {...commonProps} />;
-
     case 'howTo':
       return <DetailsHowToPage data={data} {...commonProps} />;
     case 'customerStory':
