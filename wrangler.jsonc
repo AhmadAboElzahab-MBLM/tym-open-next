@@ -14,7 +14,7 @@
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "r2_buckets": [
     {
-      "bucket_name": "tym-open-next-cache",
+      "bucket_name": "tym-corporate-next-inc-cache",
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
     },
   ],
