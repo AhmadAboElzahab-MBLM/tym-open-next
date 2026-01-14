@@ -14,6 +14,8 @@ import DetailsPage from '@/components/page-structures/details-page';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
 
+export const dynamicParams = false;
+
 async function getContentByParams(params) {
   try {
     const regions = {
@@ -52,6 +54,8 @@ async function getContentByParams(params) {
 }
 
 export async function generateStaticParams() {
+  const targetLang = process.env.LANG;
+
   const locales = ['en-us', 'ko'];
   const contentTypes = [
     'home',
@@ -78,18 +82,27 @@ export async function generateStaticParams() {
     if (includes(path, '/en/')) {
       const enKo = path.replace('/en/', '/en-ko/');
       const enUs = path.replace('/en/', '/en-us/');
-      if (!includes(excludedRegions, 'South Korea')) {
-        result.push({ slug: trimStart(enKo, '/').split('/') });
+
+      if (!targetLang || targetLang === 'en-ko') {
+        if (!includes(excludedRegions, 'South Korea')) {
+          result.push({ slug: trimStart(enKo, '/').split('/') });
+        }
       }
-      if (!includes(excludedRegions, 'North America')) {
-        result.push({ slug: trimStart(enUs, '/').split('/') });
+      if (!targetLang || targetLang === 'en-us') {
+        if (!includes(excludedRegions, 'North America')) {
+          result.push({ slug: trimStart(enUs, '/').split('/') });
+        }
       }
-      if (!includes(excludedRegions, 'International')) {
-        result.push({ slug: trimStart(path, '/').split('/') });
+      if (!targetLang || targetLang === 'en') {
+        if (!includes(excludedRegions, 'International')) {
+          result.push({ slug: trimStart(path, '/').split('/') });
+        }
       }
     } else if (includes(path, '/ko/')) {
-      if (!includes(excludedRegions, 'South Korea')) {
-        result.push({ slug: trimStart(path, '/').split('/') });
+      if (!targetLang || targetLang === 'ko') {
+        if (!includes(excludedRegions, 'South Korea')) {
+          result.push({ slug: trimStart(path, '/').split('/') });
+        }
       }
     }
 

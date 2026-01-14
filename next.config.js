@@ -2,16 +2,6 @@
 const path = require('path');
 
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source:
-          '/:path((?!en|en-us|ko|en-ko|[a-z]{2}-[a-z]{2}|dealers|search|location|get-ip|sitemap|robots|favicon|download|location-icon|api|$).*)',
-        destination: '/en-us/:path*',
-        permanent: false,
-      },
-    ];
-  },
   images: {
     unoptimized: true,
     remotePatterns: [
