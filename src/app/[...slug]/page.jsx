@@ -6,7 +6,7 @@ import {
   getByPath,
   getByContentTypeSpecificData,
 } from '@/services/umbraco';
-import BasicPage fromc '@/components/page-structures/basic-page';
+import BasicPage from '@/components/page-structures/basic-page';
 import ProductsPage from '@/components/page-structures/products-page';
 import DetailsHowToPage from '@/components/page-structures/details-how-to-page';
 import DetailsSuccessStories from '@/components/page-structures/details-success-stories';
@@ -51,7 +51,6 @@ async function getContentByParams(params) {
   }
 }
 
-
 export async function generateStaticParams() {
   const locales = ['en-us', 'ko'];
   const contentTypes = [
@@ -63,7 +62,7 @@ export async function generateStaticParams() {
     'howTo',
     'promotion',
     'preOwned',
-    'media'
+    'media',
   ];
 
   const contentPromises = contentTypes.map((type) =>
