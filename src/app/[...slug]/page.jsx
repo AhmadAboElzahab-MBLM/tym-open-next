@@ -1,33 +1,44 @@
 import React from 'react';
-import { get, trimStart, isEmpty } from 'lodash';
+import { get, trimStart, isEmpty, includes, join } from 'lodash';
 import {
   getAllSlugs,
   getByContentType,
   getByPath,
   getByContentTypeSpecificData,
 } from '@/services/umbraco';
-import BasicPage from '@/components/page-structures/basic-page';
+import BasicPage fromc '@/components/page-structures/basic-page';
 import ProductsPage from '@/components/page-structures/products-page';
 import DetailsHowToPage from '@/components/page-structures/details-how-to-page';
 import DetailsSuccessStories from '@/components/page-structures/details-success-stories';
 import DetailsPage from '@/components/page-structures/details-page';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
-import { LANG, REGION, LOCALE } from '@/lib/runtime-locale';
 
 async function getContentByParams(params) {
   try {
-    const path = params.slug.join('/');
+    const regions = {
+      en: 'International',
+      ko: '한국',
+      'en-ko': 'South Korea',
+      'en-us': 'North America',
+    };
+
+    const lang = get(params, 'slug[0]', '');
+    const region = regions[lang];
+    const locale = lang === 'ko' ? 'ko' : 'en-us';
+    const path = join(params.slug, '/');
 
     const [data, settings, translations] = await Promise.all([
-      getByPath(path, REGION),
-      getByContentType('settings', REGION, LOCALE, LANG).then((r) => r[0]),
-      getByContentType('translations', REGION, LOCALE, LANG).then((r) => r[0]),
+      getByPath(path, region),
+      getByContentType('settings', region, locale, lang).then((_settings) => _settings[0]),
+      getByContentType('translations', region, locale, lang).then(
+        (_translations) => _translations[0],
+      ),
     ]);
 
     if (isEmpty(data)) throw new Error('No data fetched from Umbraco.');
 
-    return { data, settings, translationItems: translations, region: REGION, lang: LANG, locale: LOCALE };
+    return { data, settings, translationItems: translations, region, lang, locale };
   } catch (error) {
     return {
       data: null,
@@ -40,7 +51,9 @@ async function getContentByParams(params) {
   }
 }
 
+
 export async function generateStaticParams() {
+  const locales = ['en-us', 'ko'];
   const contentTypes = [
     'home',
     'page',
@@ -50,18 +63,40 @@ export async function generateStaticParams() {
     'howTo',
     'promotion',
     'preOwned',
-    'media',
+    'media'
   ];
 
-  const content = await Promise.all(
-    contentTypes.map((type) => getAllSlugs(type, LOCALE))
+  const contentPromises = contentTypes.map((type) =>
+    locales.map((locale) => getAllSlugs(type, locale)),
   );
 
-  return content.flat().map((page) => ({
-    slug: trimStart(page.route.path, '/')
-      .replace(/^en\/|^ko\//, '') // normalize
-      .split('/'),
-  }));
+  const content = await Promise.all(contentPromises.flat());
+
+  const paths = content.flat().reduce((result, page) => {
+    const path = get(page, 'route.path', '');
+    const excludedRegions = get(page, 'properties.excludedRegions', []);
+
+    if (includes(path, '/en/')) {
+      const enKo = path.replace('/en/', '/en-ko/');
+      const enUs = path.replace('/en/', '/en-us/');
+      if (!includes(excludedRegions, 'South Korea')) {
+        result.push({ slug: trimStart(enKo, '/').split('/') });
+      }
+      if (!includes(excludedRegions, 'North America')) {
+        result.push({ slug: trimStart(enUs, '/').split('/') });
+      }
+      if (!includes(excludedRegions, 'International')) {
+        result.push({ slug: trimStart(path, '/').split('/') });
+      }
+    } else if (includes(path, '/ko/')) {
+      if (!includes(excludedRegions, 'South Korea')) {
+        result.push({ slug: trimStart(path, '/').split('/') });
+      }
+    }
+
+    return result;
+  }, []);
+  return paths;
 }
 
 export default async function Page({ params }) {
@@ -69,15 +104,16 @@ export default async function Page({ params }) {
 
   const { data, settings, translationItems, region, lang, locale } =
     await getContentByParams(resolvedParams);
-
   const { product, customerStory, promotion, mediaItem, howTo } = await handleSpecificData(
     data,
     region,
     locale,
-    lang
+    lang,
   );
 
   const navigationProducts = await fetchHeaderProducts(lang);
+
+  // Fetch all pre-owned products array (similar to how products are fetched)
   const allPreOwnedProducts = await getByContentTypeSpecificData('preOwned', region, locale, lang);
 
   const translations = get(translationItems, 'properties.translationItems.items', []);
@@ -86,6 +122,7 @@ export default async function Page({ params }) {
   const bodyData = get(data, 'properties', []);
   const mainClass = 'min-h-full';
 
+  // Common props
   const commonProps = {
     locale,
     region,
@@ -110,6 +147,7 @@ export default async function Page({ params }) {
       return <BasicPage data={blocks} {...commonProps} preOwnedProducts={allPreOwnedProducts} />;
     case 'product':
       return <ProductsPage data={data} {...commonProps} />;
+
     case 'howTo':
       return <DetailsHowToPage data={data} {...commonProps} />;
     case 'customerStory':
