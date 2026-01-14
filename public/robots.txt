@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://tym.world
+
+# Sitemaps
+Sitemap: https://tym.world/sitemap.xml

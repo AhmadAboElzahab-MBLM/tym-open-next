@@ -1,0 +1,14 @@
+src/models/models
+amplify*
+amplify/
+.git
+public/
+.cache/
+.idea/
+.vscode/
+node_modules/
+.next/
+out/
+.env
+.env.*
+specificData.json

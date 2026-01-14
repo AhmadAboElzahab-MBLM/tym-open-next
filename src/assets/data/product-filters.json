@@ -1,0 +1,1529 @@
+{
+  "ko": {
+    "Tractors": {
+      "filters": [
+        {
+          "title": "ROPS/캐빈",
+          "options": [
+            {
+              "value": "ROPS",
+              "results": ["T25", "T36", "K42", "K48", "K48L", "T48", "K57E", "T58", "K58"]
+            },
+            {
+              "value": "캐빈",
+              "results": [
+                "K48C",
+                "T58C",
+                "K57C",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75E",
+                "K75",
+                "K110E",
+                "T115",
+                "K120",
+                "T130"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "작업 용도",
+          "options": [
+            {
+              "value": "수도작",
+              "results": [
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            {
+              "value": "밭",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            {
+              "value": "과수 / 하우스",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T58",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P"
+              ]
+            },
+            { "value": "축산", "results": ["T115", "K120", "K110E", "T130"] }
+          ]
+        },
+        {
+          "title": "기능 옵션",
+          "options": [
+            { "value": "파워시프트", "results": ["T115", "T130"] },
+            {
+              "value": "파워셔틀",
+              "results": [
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            { "value": "텔레매틱스", "results": ["T76", "T115", "K120", "K110E", "T130"] },
+            { "value": "자율주행", "results": ["T130"] },
+            {
+              "value": "없음",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "엔진 구분",
+          "options": [
+            {
+              "value": "TYM",
+              "results": [
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "K65",
+                "K75",
+                "K75E"
+              ]
+            },
+            { "value": "HD현대인프라코어", "results": ["K110E"] },
+            { "value": "도이츠", "results": ["T62", "T69", "T76", "T115", "T130"] },
+            { "value": "얀마", "results": ["T25", "T36"] },
+            { "value": "존디어", "results": ["K120"] }
+          ]
+        }
+      ],
+      "dropdowns": [
+        {
+          "title": "Series",
+          "options": [
+            { "value": "소형", "results": ["T25"] },
+            {
+              "value": "중소형",
+              "results": [
+                "T62",
+                "TG60",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T4058P",
+                "T4058PC"
+              ]
+            },
+            {
+              "value": "중형",
+              "results": ["T69", "T76", "K65", "K75", "K75E", "T70"]
+            },
+            { "value": "대형", "results": ["T115", "K120", "K110E", "T130"] }
+          ]
+        },
+        {
+          "title": "마력",
+          "options": [
+            { "value": "-30", "results": ["T25"] },
+            {
+              "value": "30-60",
+              "results": [
+                "T36",
+                "K42",
+                "K48",
+                "K48L",
+                "K48C",
+                "T48",
+                "T58",
+                "T58C",
+                "K57E",
+                "K57C",
+                "K58",
+                "K58P",
+                "T4058P",
+                "T4058PC"
+              ]
+            },
+            { "value": "60-100", "results": ["T62", "T69", "T76", "K65", "K75E", "K75"] },
+            { "value": "100", "results": ["K110E", "T115", "K120", "T130"] }
+          ]
+        }
+      ]
+    },
+    "Harvesters": {
+      "filters": [
+        {
+          "title": "구분",
+          "options": [
+            { "value": "자탈형", "results": ["CX4075", "CX5130", "CX6130", "HJ6135", "HJ7135"] },
+            { "value": "보통형", "results": ["TH1200"] }
+          ]
+        },
+        {
+          "title": "예취 조수",
+          "options": [
+            { "value": "4", "results": ["CX4075"] },
+            { "value": "5", "results": ["CX5130", "HJ5101"] },
+            { "value": "6", "results": ["CX6130", "HJ6115", "HJ6135"] },
+            { "value": "7", "results": ["HJ7135"] }
+          ]
+        },
+        {
+          "title": "제품 라인",
+          "options": [
+            { "value": "자사", "results": ["CX4075", "CX5130", "CX6130"] },
+            { "value": "수입", "results": ["HJ5101", "HJ6115", "HJ6135", "HJ7135"] }
+          ]
+        }
+      ]
+    },
+    "Rice Transplanters": {
+      "filters": [
+        {
+          "title": "식부 조수",
+          "options": [
+            {
+              "value": "6",
+              "results": ["RGO-660GL", "RGO-660DL", "PR63GL", "PR63DL", "RGO-690DLS"]
+            },
+            { "value": "8", "results": ["PRJ83DL"] }
+          ]
+        },
+        {
+          "title": "제품 라인",
+          "options": [
+            { "value": "자사", "results": ["RGO-660GL", "RGO-660DL", "RGO-690DLS"] },
+            { "value": "수입", "results": ["PR63GL", "PR63DL", "PRJ83DL"] }
+          ]
+        },
+        {
+          "title": "연료 타입",
+          "options": [
+            { "value": "디젤", "results": ["RGO-660DL", "PR63DL", "PRJ83DL", "RGO-690DLS"] },
+            { "value": "가솔린", "results": ["RGO-660GL", "PR63GL"] }
+          ]
+        }
+      ]
+    },
+    "Diesel Engines": {
+      "filters": [
+        {
+          "title": "출력",
+          "options": [
+            { "value": "20 - 30 PS", "results": ["T1100N2", "T1700N6"] },
+            { "value": "40 - 50 PS", "results": ["T2000N2", "T2300N2"] },
+            { "value": "50 - 55 PS", "results": ["T2300T3-2", "T2300T3-1"] },
+            { "value": "55 - 60 PS", "results": ["T2300T5"] },
+            { "value": "60 PS -", "results": ["T2400T4", "T2400TCI1", "T3400T7"] }
+          ]
+        },
+        {
+          "title": "배기량 (cc)",
+          "options": [
+            { "value": "1000 - 1500 cc", "results": ["T1100N2"] },
+            { "value": "1500 - 2100 cc", "results": ["T1700N6", "T2000N2"] },
+            {
+              "value": "2100 - 2200 cc",
+              "results": ["T2300N2", "T2300T3-2", "T2300T3-1", "T2300T5"]
+            },
+            { "value": "2300 - 2400 cc", "results": ["T2400T4", "T2400TCI1"] },
+            { "value": "3000 cc -", "results": ["T3400T7"] }
+          ]
+        },
+        {
+          "title": "흡기장치",
+          "options": [
+            {
+              "value": "자연흡기",
+              "results": ["T1100N2", "T1700N6", "T2000N2", "T2300N2"]
+            },
+            {
+              "value": "터보차저",
+              "results": ["T2300T3-2", "T2300T3-1", "T2300T5", "T2400T4", "T2400TCI1", "T3400T7"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "en-ko": {
+    "Tractors": {
+      "filters": [
+        {
+          "title": "ROPS / Cabin",
+          "options": [
+            {
+              "value": "ROPS",
+              "results": ["T25", "T36", "T3035", "K42", "K48", "K48L", "T48", "K57E", "T58", "K58"]
+            },
+            {
+              "value": "Cabin",
+              "results": [
+                "K48C",
+                "T58C",
+                "K57C",
+                "K58P",
+                "T3035C",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75E",
+                "K75",
+                "K110E",
+                "T115",
+                "K120",
+                "T130"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Primary Application",
+          "options": [
+            {
+              "value": "Rice farming",
+              "results": [
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            {
+              "value": "Field crops",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            {
+              "value": "Fruits / Greenhouse",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T58",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P"
+              ]
+            },
+            { "value": "Livestock", "results": ["T115", "K120", "K110E", "T130"] }
+          ]
+        },
+        {
+          "title": "Functional Option",
+          "options": [
+            { "value": "Power shift", "results": ["T115", "T130"] },
+            {
+              "value": "Power shuttle",
+              "results": [
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            },
+            { "value": "Telematics", "results": ["T76", "T115", "K120", "K110E", "T130"] },
+            { "value": "Autonomous driving", "results": ["T130"] },
+            {
+              "value": "N/A",
+              "results": [
+                "T25",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T62",
+                "T69",
+                "T76",
+                "K65",
+                "K75",
+                "K75E",
+                "T115",
+                "K120",
+                "K110E",
+                "T130"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Engine",
+          "options": [
+            {
+              "value": "TYM",
+              "results": [
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "K65",
+                "K75",
+                "K75E"
+              ]
+            },
+            { "value": "HD Hyundai Infracore", "results": ["K110E"] },
+            { "value": "Deutz", "results": ["T62", "T69", "T76", "T115", "T130"] },
+            { "value": "Yanmar", "results": ["T25", "T36"] },
+            { "value": "John Deere", "results": ["K120"] }
+          ]
+        }
+      ],
+      "dropdowns": [
+        {
+          "title": "Series",
+          "options": [
+            { "value": "Sub-Compact", "results": ["T25"] },
+            {
+              "value": "Compact",
+              "results": [
+                "T62",
+                "TG60",
+                "T36",
+                "K42",
+                "K48",
+                "K48C",
+                "K48L",
+                "T48",
+                "T58",
+                "T58C",
+                "K57C",
+                "K57E",
+                "K58",
+                "K58P",
+                "T4058P",
+                "T4058PC"
+              ]
+            },
+            {
+              "value": "compact utility",
+              "results": ["T69", "T76", "K65", "K75", "K75E", "T70"]
+            },
+            { "value": "Utility", "results": ["T115", "K120", "K110E", "T130", "T6130"] }
+          ]
+        },
+        {
+          "title": "PS Range",
+          "options": [
+            { "value": "-30", "results": ["T25"] },
+            {
+              "value": "30-60",
+              "results": [
+                "T36",
+                "K42",
+                "K48",
+                "K48L",
+                "K48C",
+                "T48",
+                "T58",
+                "T58C",
+                "K57E",
+                "K57C",
+                "K58",
+                "K58P",
+                "T4058P",
+                "T4058PC"
+              ]
+            },
+            { "value": "60-100", "results": ["T62", "T69", "T76", "K65", "K75E", "K75"] },
+            { "value": "100", "results": ["K110E", "T115", "K120", "T130"] }
+          ]
+        }
+      ]
+    },
+    "Harvesters": {
+      "filters": [
+        {
+          "title": "Grains",
+          "options": [
+            { "value": "Rice", "results": ["CX4075", "CX5130", "CX6130", "HJ6135", "HJ7135"] },
+            { "value": "Multi-crops", "results": ["TH1200"] }
+          ]
+        },
+        {
+          "title": "Reaping Rows",
+          "options": [
+            { "value": "4", "results": ["CX4075"] },
+            { "value": "5", "results": ["CX5130", "HJ5101"] },
+            { "value": "6", "results": ["CX6130", "HJ6115", "HJ6135"] },
+            { "value": "7", "results": ["HJ7135"] }
+          ]
+        },
+        {
+          "title": "Product Line",
+          "options": [
+            { "value": "Domestic", "results": ["CX4075", "CX5130", "CX6130"] },
+            { "value": "Imports", "results": ["HJ5101", "HJ6115", "HJ6135", "HJ7135"] }
+          ]
+        }
+      ]
+    },
+    "Rice Transplanters": {
+      "filters": [
+        {
+          "title": "Reaping Rows",
+          "options": [
+            {
+              "value": "6",
+              "results": ["RGO-660GL", "RGO-660DL", "PR63GL", "PR63DL", "RGO-690DLS"]
+            },
+            { "value": "8", "results": ["PRJ83DL"] }
+          ]
+        },
+        {
+          "title": "Product Line",
+          "options": [
+            { "value": "Domestic", "results": ["RGO-660GL", "RGO-660DL", "RGO-690DLS"] },
+            { "value": "Imports", "results": ["PR63GL", "PR63DL", "PRJ83DL"] }
+          ]
+        },
+        {
+          "title": "Fuel Type",
+          "options": [
+            { "value": "Diesel", "results": ["RGO-660DL", "PR63DL", "PRJ83DL", "RGO-690DLS"] },
+            { "value": "Gasoline", "results": ["RGO-660GL", "PR63GL"] }
+          ]
+        }
+      ]
+    },
+    "Diesel Engines": {
+      "filters": [
+        {
+          "title": "Engine Power",
+          "options": [
+            { "value": "20 - 30 PS", "results": ["T1100N2", "T1700N6"] },
+            { "value": "40 - 50 PS", "results": ["T2000N2", "T2300N2"] },
+            { "value": "50 - 55 PS", "results": ["T2300T3-2", "T2300T3-1"] },
+            { "value": "55 - 60 PS", "results": ["T2300T5"] },
+            { "value": "60 PS -", "results": ["T2400T4", "T2400TCI1", "T3400T7"] }
+          ]
+        },
+        {
+          "title": "Displacement (cc)",
+          "options": [
+            { "value": "1000 - 1500 cc", "results": ["T1100N2"] },
+            { "value": "1500 - 2100 cc", "results": ["T1700N6", "T2000N2"] },
+            {
+              "value": "2100 - 2200 cc",
+              "results": ["T2300N2", "T2300T3-2", "T2300T3-1", "T2300T5"]
+            },
+            { "value": "2300 - 2400 cc", "results": ["T2400T4", "T2400TCI1"] },
+            { "value": "3000 cc -", "results": ["T3400T7"] }
+          ]
+        },
+        {
+          "title": "Intake System",
+          "options": [
+            {
+              "value": "Natural aspirated",
+              "results": ["T1100N2", "T1700N6", "T2000N2", "T2300N2"]
+            },
+            {
+              "value": "Turbocharger",
+              "results": ["T2300T3-2", "T2300T3-1", "T2300T5", "T2400T4", "T2400TCI1", "T3400T7"]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "en-us": {
+    "Tractors": {
+      "filters": [
+        {
+          "title": "ROPS / Cabin",
+          "options": [
+            {
+              "value": "Cabin",
+              "results": [
+                "3515C",
+                "T394C",
+                "4215C",
+                "4815C",
+                "T474C",
+                "T454C",
+                "T494C",
+                "4820C",
+                "5520C",
+                "T574C",
+                "T554C",
+                "T3035C",
+                "T654",
+                "T754",
+                "T1104",
+                "T115",
+                "T130",
+                "T3025C",
+                "T4058PC",
+                "T5075"
+              ]
+            },
+            {
+              "value": "ROPS",
+              "results": [
+                "T224",
+                "T254",
+                "2400",
+                "T264",
+                "T3035",
+                "2610",
+                "T25",
+                "2515",
+                "3015",
+                "3515",
+                "T394",
+                "4215",
+                "4815",
+                "T474",
+                "3620",
+                "T454",
+                "4820",
+                "T494",
+                "5520",
+                "T574",
+                "T554",
+                "5835"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Primary Application",
+          "options": [
+            {
+              "value": "Residential mowing",
+              "results": ["T224", "T254", "2400", "T264", "2610", "T25"]
+            },
+            {
+              "value": "Tilling",
+              "results": [
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835"
+              ]
+            },
+            {
+              "value": "Grading and leveling",
+              "results": [
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835",
+                "T654",
+                "T754",
+                "T1104",
+                "T115",
+                "T130"
+              ]
+            },
+            {
+              "value": "Large property mowing",
+              "results": ["T1104", "T115", "T130", "T6130"]
+            },
+            {
+              "value": "Carrying and hauling",
+              "results": [
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835",
+                "T654",
+                "T754",
+                "T1104",
+                "T115",
+                "T130"
+              ]
+            },
+            {
+              "value": "Snow removal",
+              "results": [
+                "T224",
+                "T254",
+                "2400",
+                "T264",
+                "2610",
+                "T25",
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835",
+                "T654",
+                "T754",
+                "T1104",
+                "T115",
+                "T130"
+              ]
+            },
+            {
+              "value": "Aerating",
+              "results": [
+                "T224",
+                "T254",
+                "2400",
+                "T264",
+                "2610",
+                "T25",
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Functional Option",
+          "options": [
+            {
+              "value": "Power shift",
+              "results": ["T1104", "T115", "T130"]
+            },
+            {
+              "value": "Power shuttle",
+              "results": ["T654", "T754", "T1104", "T115", "T130"]
+            },
+            {
+              "value": "Telematics",
+              "results": ["T115", "T130"]
+            },
+            {
+              "value": "None",
+              "results": [
+                "T224",
+                "T25",
+                "T254",
+                "2400",
+                "T3035C",
+                "T3035",
+                "T264",
+                "2610",
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835",
+                "T654",
+                "T754",
+                "T1104",
+                "T115",
+                "T130"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Engine",
+          "options": [
+            {
+              "value": "TYM",
+              "results": [
+                "2400",
+                "T264",
+                "2610",
+                "T3035C",
+                "T3035",
+                "T474",
+                "T474C",
+                "2515",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835"
+              ]
+            },
+            {
+              "value": "HD Hyundai Infracore",
+              "results": ["T1104"]
+            },
+            {
+              "value": "Deutz",
+              "results": ["T654", "T754", "T115", "T130"]
+            },
+            {
+              "value": "Yanmar",
+              "results": ["T224", "T25", "T254", "T394", "T394C", "T454", "T454C", "T554", "T554C"]
+            }
+          ]
+        }
+      ],
+      "dropdowns": [
+        {
+          "title": "Series",
+          "options": [
+            {
+              "value": "Sub-Compact",
+              "results": ["T224", "T25", "T254", "2400", "T264", "2610"]
+            },
+            {
+              "value": "Compact",
+              "results": [
+                "2515",
+                "T3035C",
+                "T3035",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835",
+                "T3025C"
+              ]
+            },
+            {
+              "value": "compact utility",
+              "results": ["T654", "T754", "T5075"]
+            },
+            {
+              "value": "Utility",
+              "results": ["T1104", "T115", "T130", "T6130"]
+            }
+          ]
+        },
+        {
+          "title": "HP",
+          "options": [
+            { "value": "-30", "results": ["T224", "T25", "T254", "2400", "T264", "2610"] },
+            {
+              "value": "30-60",
+              "results": [
+                "2515",
+                "T3035C",
+                "T3035",
+                "3015",
+                "3515",
+                "3515C",
+                "4215",
+                "4215C",
+                "4815",
+                "4815C",
+                "T394",
+                "T394C",
+                "T474",
+                "T474C",
+                "T454",
+                "T454C",
+                "T554",
+                "T554C",
+                "3620",
+                "T494",
+                "T494C",
+                "4820",
+                "4820C",
+                "5520",
+                "5520C",
+                "T574",
+                "T574C",
+                "5835"
+              ]
+            },
+            { "value": "60-100", "results": ["T654", "T754", "T5075"] },
+            { "value": "100", "results": ["T1104", "T115", "T130", "T6130"] }
+          ]
+        }
+      ]
+    }
+  },
+  "en": {
+    "Tractors": {
+      "filters": [
+        {
+          "title": "ROPS / Cabin",
+          "options": [
+            {
+              "value": "Cabin",
+              "results": [
+                "T36C",
+                "F50C",
+                "T3035C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C",
+                "T68",
+                "T78"
+              ]
+            },
+            {
+              "value": "ROPS",
+              "results": [
+                "TL130SL",
+                "T194",
+                "T255",
+                "2500",
+                "2500L",
+                "T265",
+                "T25",
+                "T3035",
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Primary Application",
+          "options": [
+            {
+              "value": "Residential mowing",
+              "results": ["T194", "T255", "2500", "2500L", "T265", "T25"]
+            },
+            {
+              "value": "Tilling",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C"
+              ]
+            },
+            {
+              "value": "Grading and leveling",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C",
+                "T68",
+                "T78",
+                "T115"
+              ]
+            },
+            {
+              "value": "Large property mowing",
+              "results": ["T115"]
+            },
+            {
+              "value": "Carrying and hauling",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C",
+                "T68",
+                "T78",
+                "T115"
+              ]
+            },
+            {
+              "value": "Snow removal",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C",
+                "T68",
+                "T78",
+                "T115"
+              ]
+            },
+            {
+              "value": "Aerating",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Functional Option",
+          "options": [
+            {
+              "value": "Power shift",
+              "results": ["T115"]
+            },
+            {
+              "value": "Power shuttle",
+              "results": ["T68", "T78"]
+            },
+            {
+              "value": "N/A",
+              "results": [
+                "TL130SL",
+                "T194",
+                "T255",
+                "2500",
+                "2500L",
+                "T265",
+                "T25",
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C",
+                "T68",
+                "T78",
+                "T115"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Engine",
+          "options": [
+            {
+              "value": "TYM",
+              "results": [
+                "2500",
+                "2500L",
+                "T3035C",
+                "T3035",
+                "T265",
+                "F25",
+                "F36",
+                "F36C",
+                "F50",
+                "F50C",
+                "T475",
+                "5025",
+                "5025C",
+                "T495",
+                "T575",
+                "6225",
+                "6225C"
+              ]
+            },
+            {
+              "value": "Deutz",
+              "results": ["T68", "T78"]
+            },
+            {
+              "value": "Yanmar",
+              "results": ["T194", "T255", "T25", "T355", "T395", "T455", "T555"]
+            }
+          ]
+        }
+      ],
+      "dropdowns": [
+        {
+          "title": "Series",
+          "options": [
+            {
+              "value": "Sub-Compact",
+              "results": ["T194", "T255", "2500", "2500L", "T265", "T25"]
+            },
+            {
+              "value": "Compact",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C"
+              ]
+            },
+            {
+              "value": "compact utility",
+              "results": ["T68", "T78"]
+            },
+            {
+              "value": "Utility",
+              "results": ["T115", "T6130"]
+            }
+          ]
+        },
+        {
+          "title": "HP",
+          "options": [
+            {
+              "value": "-30",
+              "results": ["T194", "T255", "T265", "T25", "2500", "2500L"]
+            },
+            {
+              "value": "30-60",
+              "results": [
+                "F25",
+                "T355",
+                "T36",
+                "T395",
+                "F50",
+                "T475",
+                "5025",
+                "6225",
+                "T36C",
+                "F50C",
+                "T455",
+                "5025C",
+                "T495",
+                "T575",
+                "T555",
+                "6225C"
+              ]
+            },
+            {
+              "value": "60-100",
+              "results": ["T68", "T78"]
+            },
+            {
+              "value": "100",
+              "results": ["T115"]
+            }
+          ]
+        }
+      ]
+    },
+    "Diesel Engines": {
+      "filters": [
+        {
+          "title": "Engine Power",
+          "options": [
+            { "value": "20 - 30 PS", "results": ["T1100N2", "T1700N6"] },
+            { "value": "40 - 50 PS", "results": ["T2000N2", "T2300N2"] },
+            { "value": "50 - 55 PS", "results": ["T2300T3-2", "T2300T3-1"] },
+            { "value": "55 - 60 PS", "results": ["T2300T5"] },
+            { "value": "60 PS -", "results": ["T2400T4", "T2400TCI1", "T3400T7"] }
+          ]
+        },
+        {
+          "title": "Displacement (cc)",
+          "options": [
+            { "value": "1000 - 1500 cc", "results": ["T1100N2"] },
+            { "value": "1500 - 2200 cc", "results": ["T1700N6", "T2000N2"] },
+            {
+              "value": "2200 - 2300 cc",
+              "results": ["T2300N2", "T2300T3-2", "T2300T3-1", "T2300T5"]
+            },
+            { "value": "2300 - 2400 cc", "results": ["T2400T4", "T2400TCI1"] },
+            { "value": "3000 cc -", "results": ["T3400T7"] }
+          ]
+        },
+        {
+          "title": "Intake System",
+          "options": [
+            {
+              "value": "Natural aspirated",
+              "results": ["T1100N2", "T1700N6", "T2000N2", "T2300N2"]
+            },
+            {
+              "value": "Turbocharger",
+              "results": ["T2300T3-2", "T2300T3-1", "T2300T5", "T2400T4", "T2400TCI1", "T3400T7"]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
