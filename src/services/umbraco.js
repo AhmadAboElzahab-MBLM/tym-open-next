@@ -106,6 +106,7 @@ export async function getByContentType(
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
 
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
@@ -123,8 +124,7 @@ export async function getByContentType(
     // Fetch all items using the total count
     // eslint-disable-next-line max-len
 
-    const productQueryFields =
-      `&fields=properties[id,name,route,title,excludedRegions,shortDescription,description,category,subCategory,series,subSeries,links,featuresImage,sliderFrontImage,highlightSpecificationThumbnail,navigationFrontImage,applicationTitle,applicationText,application,specifications,landsize,primaryApplication,taskIntensity,terrain,productTitle,productText,productLink,productImage,productDisclaimer,quizItems,comparedMachines,engineLogo,engineLogoNav,navigationThumbSideImage,configureParentTractors,seriesOrder,isParent,product3DId,
+    const productQueryFields = `&fields=properties[id,name,route,title,excludedRegions,shortDescription,description,category,subCategory,series,subSeries,links,featuresImage,sliderFrontImage,highlightSpecificationThumbnail,navigationFrontImage,applicationTitle,applicationText,application,specifications,landsize,primaryApplication,taskIntensity,terrain,productTitle,productText,productLink,productImage,productDisclaimer,quizItems,comparedMachines,engineLogo,engineLogoNav,navigationThumbSideImage,configureParentTractors,seriesOrder,isParent,product3DId,
       filterRopsCabin,filterPrimaryApplication,filterFunctionalOption,filterEngine,filterHP,filterGrains,filterFuelType,filterReapingRows,filterProductLine,filterEnginePower,filterDisplacementCc,filterIntakeSystem]`;
 
     const sort = '&sort=sortOrder:asc';
