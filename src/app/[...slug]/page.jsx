@@ -53,7 +53,8 @@ async function getContentByParams(params) {
 
 // Only pre-build home pages, other pages will be generated on-demand and cached in R2
 export const dynamicParams = true;
-export const revalidate = false; // Cache indefinitely, only revalidate on-demand
+export const dynamic = 'force-static'; // Force static generation for dynamic pages (caches in R2)
+export const revalidate = false; // No time-based revalidation, only on-demand via API
 
 export async function generateStaticParams() {
   // Only pre-build home pages for each region
