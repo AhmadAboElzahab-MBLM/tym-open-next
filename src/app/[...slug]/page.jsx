@@ -1,7 +1,6 @@
 import React from 'react';
-import { get, trimStart, isEmpty, includes, join } from 'lodash';
+import { get, isEmpty, join } from 'lodash';
 import {
-  getAllSlugs,
   getByContentType,
   getByPath,
   getByContentTypeSpecificData,
@@ -52,51 +51,18 @@ async function getContentByParams(params) {
 }
 
 
+// Only pre-build home pages, other pages will be generated on-demand and cached in R2
+export const dynamicParams = true;
+export const revalidate = false; // Cache indefinitely, only revalidate on-demand
+
 export async function generateStaticParams() {
-  const locales = ['en-us', 'ko'];
-  const contentTypes = [
-    'home',
-    'page',
-    'product',
-    'customerStory',
-    'mediaItem',
-    'howTo',
-    'promotion',
-    'preOwned',
-    'media'
+  // Only pre-build home pages for each region
+  return [
+    { slug: ['en'] },
+    { slug: ['en-us'] },
+    { slug: ['en-ko'] },
+    { slug: ['ko'] },
   ];
-
-  const contentPromises = contentTypes.map((type) =>
-    locales.map((locale) => getAllSlugs(type, locale)),
-  );
-
-  const content = await Promise.all(contentPromises.flat());
-
-  const paths = content.flat().reduce((result, page) => {
-    const path = get(page, 'route.path', '');
-    const excludedRegions = get(page, 'properties.excludedRegions', []);
-
-    if (includes(path, '/en/')) {
-      const enKo = path.replace('/en/', '/en-ko/');
-      const enUs = path.replace('/en/', '/en-us/');
-      if (!includes(excludedRegions, 'South Korea')) {
-        result.push({ slug: trimStart(enKo, '/').split('/') });
-      }
-      if (!includes(excludedRegions, 'North America')) {
-        result.push({ slug: trimStart(enUs, '/').split('/') });
-      }
-      if (!includes(excludedRegions, 'International')) {
-        result.push({ slug: trimStart(path, '/').split('/') });
-      }
-    } else if (includes(path, '/ko/')) {
-      if (!includes(excludedRegions, 'South Korea')) {
-        result.push({ slug: trimStart(path, '/').split('/') });
-      }
-    }
-
-    return result;
-  }, []);
-  return paths;
 }
 
 export default async function Page({ params }) {
