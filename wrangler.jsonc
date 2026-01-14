@@ -12,10 +12,10 @@
   "main": ".open-next/worker.js",
   "compatibility_date": "2025-12-01",
   "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "kv_namespaces": [
+  "r2_buckets": [
     {
-      "binding": "NEXT_INC_CACHE_KV",
-      "id": "a8043c9f40454d019aca9c86fb5fa585",
+      "bucket_name": "tym-open-next-cache",
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
     },
   ],
   "assets": {
