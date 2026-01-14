@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tym-open-next-en-us",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-12-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  "vars": {
+    "LANG": "en-us",
+    "REGION": "North America",
+    "LOCALE": "en-us"
+  },
+
+  "r2_buckets": [
+    { "bucket_name": "tym-corporate-next-inc-cache", "binding": "NEXT_INC_CACHE_R2_BUCKET" }
+  ],
+  "assets": { "binding": "ASSETS", "directory": ".open-next/assets" },
+  "images": { "binding": "IMAGES" },
+  "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "tym-open-next-en-us" }],
+  "observability": { "enabled": true }
+}
