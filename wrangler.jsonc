@@ -13,26 +13,4 @@
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "tym-open-next" }],
   "observability": { "enabled": true },
 
-  "env": {
-    "en": {
-      "name": "tym-open-next-en",
-      "vars": { "LANG": "en", "REGION": "International", "LOCALE": "en-us" },
-    },
-    "en-us": {
-      "name": "tym-open-next-en-us",
-      "vars": { "LANG": "en-us", "REGION": "North America", "LOCALE": "en-us" },
-    },
-    "en-ko": {
-      "name": "tym-open-next-en-ko",
-      "vars": { "LANG": "en-ko", "REGION": "South Korea", "LOCALE": "en-us" },
-    },
-    "ko": {
-      "name": "tym-open-next-ko",
-      "vars": { "LANG": "ko", "REGION": "South Korea", "LOCALE": "ko" },
-    },
-    "router": {
-      "name": "tym-open-next-router",
-      "main": "src/router.ts",
-    },
-  },
 }
