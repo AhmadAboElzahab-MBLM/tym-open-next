@@ -13,10 +13,9 @@ const wranglerConfig = {
   main: '.open-next/worker.js',
   compatibility_date: '2025-12-01',
   compatibility_flags: ['nodejs_compat', 'global_fetch_strictly_public'],
-  // Comment out or remove R2 buckets to disable incremental caching
-  // r2_buckets: [
-  //   { bucket_name: bucketName, binding: 'NEXT_INC_CACHE_R2_BUCKET' },
-  // ],
+  r2_buckets: [
+    { bucket_name: bucketName, binding: 'NEXT_INC_CACHE_R2_BUCKET' },
+  ],
   assets: { binding: 'ASSETS', directory: '.open-next/assets' },
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
