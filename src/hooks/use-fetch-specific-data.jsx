@@ -6,7 +6,7 @@ export function useFetchSpecificData(contentType, region, locale, lang) {
   const [error, setError] = useState(null);
   const fetchData = async () => {
     try {
-      const res = await fetch('/specific-data', {
+      const res = await fetch('/api/specific-data', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

@@ -23,7 +23,7 @@ export default function FeaturedDealerSlider({ data, lang }) {
 
   const fetchData = async () => {
     try {
-      const res = await fetch('/dealers', {
+      const res = await fetch('/api/dealers', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

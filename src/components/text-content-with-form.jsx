@@ -21,7 +21,7 @@ export default function TextContentWithForm({ data, id, lang, region }) {
 
   const getDealers = async () => {
     try {
-      const res = await fetch('/dealers', {
+      const res = await fetch('/api/dealers', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

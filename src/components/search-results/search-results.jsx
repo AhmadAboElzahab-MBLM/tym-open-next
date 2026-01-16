@@ -30,7 +30,7 @@ export default function SearchResults({ data, region, locale, lang }) {
       return;
     }
 
-    const response = await fetch('/search', {
+    const response = await fetch('/api/search', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',

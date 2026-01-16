@@ -16,7 +16,7 @@ export default function FormGeneral({ data, id, lang, region }) {
   const [formLoaded, setFormLoaded] = useState(false);
 
   const getDealers = async () => {
-    const res = await fetch('/dealers', {
+    const res = await fetch('/api/dealers', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',

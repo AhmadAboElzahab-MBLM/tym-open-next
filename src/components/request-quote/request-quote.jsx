@@ -499,7 +499,7 @@ export default function RequestQuote({ data, id, region, lang, products }) {
 
     try {
       dealersInitialized.current = true;
-      const res = await fetch('/dealers', {
+      const res = await fetch('/api/dealers', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

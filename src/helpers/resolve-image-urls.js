@@ -1,6 +1,10 @@
 import _ from 'lodash';
 
-export default function resolveImageUrls(obj, urlPrefix) {
+export default function resolveImageUrls(obj, urlPrefix, visited = new WeakSet()) {
+  if (!obj || typeof obj !== 'object') return;
+  if (visited.has(obj)) return;
+  visited.add(obj);
+
   const imageTypes = [
     'downloadables',
     'partsCatalog',
@@ -42,7 +46,7 @@ export default function resolveImageUrls(obj, urlPrefix) {
         }
       });
     } else if (_.isObject(value) || _.isArray(value)) {
-      resolveImageUrls(value, urlPrefix);
+      resolveImageUrls(value, urlPrefix, visited);
     }
   });
 }

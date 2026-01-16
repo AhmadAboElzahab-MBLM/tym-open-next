@@ -75,7 +75,7 @@ export default function RequestPart({ data, id, region, products }) {
 
   const getDealers = async () => {
     try {
-      const res = await fetch('/dealers', {
+      const res = await fetch('/api/dealers', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

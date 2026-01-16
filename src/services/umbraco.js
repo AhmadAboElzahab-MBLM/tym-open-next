@@ -4,6 +4,7 @@ import resolveInternalLinks from '@/helpers/resolve-internal-links';
 import resolveExcludedBlocks from '@/helpers/resolve-excluded-blocks';
 import resolveSettingsRegions from '@/helpers/resolve-settings-regions';
 import resolveExcludedContentType from '@/helpers/resolve-excluded-content-type';
+import sanitizeData from '@/helpers/sanitize-data';
 
 export async function getByContentTypeSpecificData(
   contentType,

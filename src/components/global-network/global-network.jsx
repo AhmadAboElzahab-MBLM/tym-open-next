@@ -47,7 +47,7 @@ export default function GlobalNetwork({ data, id }) {
     const ipData = await fetchMyIp();
     const ip = _.get(ipData, 'userIP', '');
     if (!ip) return null;
-    let res = await fetch('/get-ip', {
+    let res = await fetch('/api/get-ip', {
       method: 'POST',
       mode: 'cors',
       cache: 'no-cache',
@@ -68,7 +68,7 @@ export default function GlobalNetwork({ data, id }) {
     try {
       const currLocation = await getCurrLocation();
 
-      const res = await fetch('/dealers', {
+      const res = await fetch('/api/dealers', {
         method: 'POST',
         mode: 'cors',
         cache: 'no-cache',

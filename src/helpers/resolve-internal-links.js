@@ -1,7 +1,10 @@
 import _ from 'lodash';
 
-export default function resolveInternalLinks(obj, lang) {
-  // console.log(obj?.link);
+export default function resolveInternalLinks(obj, lang, visited = new WeakSet()) {
+  if (!obj || typeof obj !== 'object') return;
+  if (visited.has(obj)) return;
+  visited.add(obj);
+
   _.forEach(obj, (val, key) => {
     if (key === 'link' && _.isArray(val)) {
       _.forEach(val, (link, index) => {
@@ -11,7 +14,7 @@ export default function resolveInternalLinks(obj, lang) {
         else if (route) _.set(obj, `[${key}][${index}].url`, route);
       });
     } else if (_.isObject(val) || _.isArray(val)) {
-      resolveInternalLinks(val, lang);
+      resolveInternalLinks(val, lang, visited);
     }
   });
 }
