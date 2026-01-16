@@ -1,11 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import dotenv from 'dotenv';
 
-// Load .env file
-dotenv.config();
-
-const lang = process.env.NEXT_PUBLIC_LANG || 'en-dsaus';
+const lang = process.env.NEXT_PUBLIC_LANG || 'no-lang';
 const workerName = `tym-open-next-${lang}`;
 
 console.log(`Using NEXT_PUBLIC_LANG: ${lang}`);
@@ -32,3 +28,4 @@ fs.writeFileSync(
   path.join(process.cwd(), 'wrangler.jsonc'),
   JSON.stringify(wranglerConfig, null, 2),
 );
+console.log(`worker created: ${workerName}`);
