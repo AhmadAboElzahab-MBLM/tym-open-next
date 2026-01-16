@@ -19,6 +19,9 @@ const wranglerConfig = {
   r2_buckets: [
     { bucket_name: 'tym-corporate-next-inc-cache', binding: 'NEXT_INC_CACHE_R2_BUCKET' },
   ],
+  limits: {
+    cpu_ms: 300000,
+  },
   assets: { binding: 'ASSETS', directory: '.open-next/assets' },
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
