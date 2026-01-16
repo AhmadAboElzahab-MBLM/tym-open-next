@@ -15,7 +15,6 @@ import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
 
 export const dynamicParams = false;
-export const revalidate = false;
 
 const regions = {
   en: 'International',

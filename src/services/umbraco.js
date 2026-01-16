@@ -23,6 +23,7 @@ export async function getByContentTypeSpecificData(
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
 
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
@@ -107,6 +108,7 @@ export async function getByContentType(
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
 
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
@@ -170,6 +172,7 @@ export async function getByPath(path, region = null) {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
     const baseImgUrl = process.env.NEXT_PUBLIC_UMBRACO_BASE_IMAGE_URL;
@@ -208,6 +211,7 @@ export async function getAllSlugs(contentType, locale) {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
 
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;

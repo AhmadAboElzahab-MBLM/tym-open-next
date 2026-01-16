@@ -34,6 +34,7 @@ export const fetchHeaderProducts = async (lang) => {
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
+      cache: 'force-cache',
     };
 
     const regions = {
