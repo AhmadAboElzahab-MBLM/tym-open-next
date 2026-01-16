@@ -12,5 +12,4 @@
   "images": { "binding": "IMAGES" },
   "services": [{ "binding": "WORKER_SELF_REFERENCE", "service": "tym-open-next" }],
   "observability": { "enabled": true },
-
 }

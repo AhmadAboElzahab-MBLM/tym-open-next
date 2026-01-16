@@ -16,19 +16,20 @@ import handleSpecificData from '@/helpers/handle-specific-data';
 
 export const dynamicParams = false;
 
+const regions = {
+  en: 'International',
+  ko: '한국',
+  'en-ko': 'South Korea',
+  'en-us': 'North America',
+};
+
 async function getContentByParams(params) {
   try {
-    const regions = {
-      en: 'International',
-      ko: '한국',
-      'en-ko': 'South Korea',
-      'en-us': 'North America',
-    };
-
-    const lang = get(params, 'slug[0]', '');
+    const lang = process.env.NEXT_PUBLIC_LANG;
     const region = regions[lang];
     const locale = lang === 'ko' ? 'ko' : 'en-us';
-    const path = join(params.slug, '/');
+    // Reconstruct the full path with lang prefix for Umbraco
+    const path = `${lang}/${join(params.slug, '/')}`;
 
     const [data, settings, translations] = await Promise.all([
       getByPath(path, region),
@@ -54,7 +55,7 @@ async function getContentByParams(params) {
 }
 
 export async function generateStaticParams() {
-  const targetLang = process.env.LANG;
+  const targetLang = process.env.NEXT_PUBLIC_LANG;
 
   const locales = ['en-us', 'ko'];
   const contentTypes = [
@@ -79,29 +80,36 @@ export async function generateStaticParams() {
     const path = get(page, 'route.path', '');
     const excludedRegions = get(page, 'properties.excludedRegions', []);
 
-    if (includes(path, '/en/')) {
-      const enKo = path.replace('/en/', '/en-ko/');
-      const enUs = path.replace('/en/', '/en-us/');
+    // Helper to strip the lang prefix and create slug array
+    const createSlug = (fullPath, langPrefix) => {
+      const withoutLang = fullPath.replace(`/${langPrefix}/`, '/');
+      const slugArray = trimStart(withoutLang, '/').split('/');
+      // Filter out empty strings (happens for homepage)
+      return slugArray.filter(Boolean);
+    };
 
-      if (!targetLang || targetLang === 'en-ko') {
-        if (!includes(excludedRegions, 'South Korea')) {
-          result.push({ slug: trimStart(enKo, '/').split('/') });
+    if (includes(path, '/en/')) {
+      if (targetLang === 'en-ko' && !includes(excludedRegions, 'South Korea')) {
+        const slugArray = createSlug(path, 'en');
+        if (slugArray.length > 0) {
+          result.push({ slug: slugArray });
         }
-      }
-      if (!targetLang || targetLang === 'en-us') {
-        if (!includes(excludedRegions, 'North America')) {
-          result.push({ slug: trimStart(enUs, '/').split('/') });
+      } else if (targetLang === 'en-us' && !includes(excludedRegions, 'North America')) {
+        const slugArray = createSlug(path, 'en');
+        if (slugArray.length > 0) {
+          result.push({ slug: slugArray });
         }
-      }
-      if (!targetLang || targetLang === 'en') {
-        if (!includes(excludedRegions, 'International')) {
-          result.push({ slug: trimStart(path, '/').split('/') });
+      } else if (targetLang === 'en' && !includes(excludedRegions, 'International')) {
+        const slugArray = createSlug(path, 'en');
+        if (slugArray.length > 0) {
+          result.push({ slug: slugArray });
         }
       }
     } else if (includes(path, '/ko/')) {
-      if (!targetLang || targetLang === 'ko') {
-        if (!includes(excludedRegions, 'South Korea')) {
-          result.push({ slug: trimStart(path, '/').split('/') });
+      if (targetLang === 'ko' && !includes(excludedRegions, 'South Korea')) {
+        const slugArray = createSlug(path, 'ko');
+        if (slugArray.length > 0) {
+          result.push({ slug: slugArray });
         }
       }
     }
