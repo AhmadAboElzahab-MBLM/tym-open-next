@@ -18,9 +18,6 @@ const wranglerConfig = {
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
   observability: { enabled: true },
-  build: {
-    upload_timeout_ms: 900000,
-  },
 };
 
 fs.writeFileSync(
