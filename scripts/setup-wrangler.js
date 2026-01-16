@@ -4,7 +4,6 @@ import path from 'path';
 const lang = process.env.NEXT_PUBLIC_LANG || 'no-lang';
 const workerName = `tym-open-next-${lang}`;
 const bucketName = `tym-open-next-cache-${lang}`;
-const bucketBinding = `tym_open_next_cache_${lang.replace(/-/g, '_')}`;
 
 console.log(`Using NEXT_PUBLIC_LANG: ${lang}`);
 
@@ -15,7 +14,7 @@ const wranglerConfig = {
   compatibility_date: '2025-12-01',
   compatibility_flags: ['nodejs_compat', 'global_fetch_strictly_public'],
   r2_buckets: [
-    { bucket_name: bucketName, binding: bucketBinding },
+    { bucket_name: bucketName, binding: 'NEXT_INC_CACHE_R2_BUCKET' },
   ],
   assets: { binding: 'ASSETS', directory: '.open-next/assets' },
   images: { binding: 'IMAGES' },
