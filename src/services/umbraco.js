@@ -107,7 +107,6 @@ export async function getByContentType(
       method: 'GET',
       headers: myHeaders,
       redirect: 'follow',
-      cache: 'force-cache',
     };
 
     const baseUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
