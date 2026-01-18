@@ -15,6 +15,20 @@ const wranglerConfig = {
   compatibility_date: '2025-12-01',
   compatibility_flags: ['nodejs_compat', 'global_fetch_strictly_public'],
   r2_buckets: [{ bucket_name: bucketName, binding: 'NEXT_INC_CACHE_R2_BUCKET' }],
+
+  // Add Durable Objects for tag cache
+  durable_objects: {
+    bindings: [{ name: 'NEXT_TAG_CACHE_DO_SHARDED', class_name: 'DOShardedTagCache' }],
+  },
+
+  // Add migrations for the Durable Object
+  migrations: [
+    {
+      tag: 'v1',
+      new_sqlite_classes: ['DOShardedTagCache'],
+    },
+  ],
+
   assets: { binding: 'ASSETS', directory: '.open-next/assets' },
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
