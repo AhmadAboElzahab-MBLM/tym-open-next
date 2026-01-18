@@ -4,6 +4,7 @@ import path from 'path';
 const lang = process.env.NEXT_PUBLIC_LANG || 'no-lang';
 const workerName = `tym-open-next-${lang}`;
 const bucketName = `tym-open-next-cache-${lang}`;
+const customDomain = process.env.CUSTOM_DOMAIN || '';
 
 console.log(`Using NEXT_PUBLIC_LANG: ${lang}`);
 
@@ -18,6 +19,7 @@ const wranglerConfig = {
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
   observability: { enabled: true },
+  vars: customDomain ? { OPEN_NEXT_ORIGIN: customDomain } : {},
 };
 
 fs.writeFileSync(
