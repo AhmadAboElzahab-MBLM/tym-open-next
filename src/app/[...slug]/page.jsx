@@ -14,7 +14,8 @@ import DetailsPage from '@/components/page-structures/details-page';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
 
-export const dynamicParams = false;
+export const dynamic = 'force-static';
+export const revalidate = 0;
 
 const regions = {
   en: 'International',

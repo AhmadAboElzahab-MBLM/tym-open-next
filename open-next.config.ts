@@ -3,6 +3,8 @@ import r2IncrementalCache from '@opennextjs/cloudflare/overrides/incremental-cac
 import { purgeCache } from '@opennextjs/cloudflare/overrides/cache-purge/index';
 
 export default defineCloudflareConfig({
-  incrementalCache: r2IncrementalCache,
+  incrementalCache: r2IncrementalCache({
+    disableFetchCache: true,
+  }),
   cachePurge: purgeCache({ type: 'direct' }),
 });
