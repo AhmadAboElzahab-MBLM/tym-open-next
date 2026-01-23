@@ -36,6 +36,7 @@ function getPowerLabel(val, lang, category) {
         'en-us': `${valueMetric} ${unitMetric}`,
         'en-ko': `${valueMetric} ${unitMetric}`,
         ko: `${valueMetric} ${unitMetric}`,
+        de: `${valueMetric} ${unitMetric}`,
       };
 
       value += langMapping[lang];

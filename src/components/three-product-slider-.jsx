@@ -69,6 +69,7 @@ export default function ThreeProductSlider({ data, region, products }) {
           'en-us': `${valueMetric} ${unitMetric}`,
           'en-ko': `${valueMetric} ${unitMetric}`,
           ko: `${valueMetric} ${unitMetric}`,
+          de: `${valueMetric} ${unitMetric}`,
         };
 
         if (title === 'Engine power') {

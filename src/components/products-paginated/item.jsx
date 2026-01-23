@@ -109,6 +109,7 @@ function Item({ item, currProduct, index, handleClick, width, category }) {
       'en-us': { value: 'valueUS', unit: 'unitUS' },
       'en-ko': { value: 'valueMetric', unit: 'unitMetric' },
       ko: { value: 'valueMetric', unit: 'unitMetric' },
+      de: { value: 'valueMetric', unit: 'unitMetric' },
     };
 
     const { value, unit } = _.get(langMapping, lang, {});

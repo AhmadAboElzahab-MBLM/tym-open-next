@@ -98,6 +98,7 @@ export default function ProductDetailsBanner({ id, data }) {
     'en-us': { value: 'valueMetric', unit: 'unitMetric' },
     'en-ko': { value: 'valueMetric', unit: 'unitMetric' },
     ko: { value: 'valueMetric', unit: 'unitMetric' },
+    de: { value: 'valueMetric', unit: 'unitMetric' },
   };
 
   const getLabelValue = (spec, lang) => {

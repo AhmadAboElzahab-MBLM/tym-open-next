@@ -19,6 +19,7 @@ function HeaderDesktopProductsMenuInnerTractors({ selected, itemLabel, handleCli
     'en-us': rangeKO,
     'en-ko': rangeKO,
     ko: rangeKO,
+    de: rangeKO,
   };
 
   return (

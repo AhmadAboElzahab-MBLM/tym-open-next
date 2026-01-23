@@ -18,6 +18,7 @@ export default function GridView({ data, compareMachinesData, isParent }) {
     'en-us': { value: 'valueMetric', unit: 'unitMetric', value2: 'valueUS', unit2: 'unitUS' },
     'en-ko': { value: 'valueMetric', unit: 'unitMetric', value2: 'valueUS', unit2: 'unitUS' },
     ko: { value: 'valueMetric', unit: 'unitMetric', value2: 'valueUS', unit2: 'unitUS' },
+    de: { value: 'valueMetric', unit: 'unitMetric', value2: 'valueUS', unit2: 'unitUS' },
   };
   const specialLangMapping = {
     'en-us': { value: 'valueUS', unit: 'unitUS', value2: 'valueMetric', unit2: 'unitMetric' },
