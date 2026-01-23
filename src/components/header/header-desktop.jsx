@@ -28,7 +28,8 @@ export default function HeaderDesktop({
   const items = _.get(data, 'items', []);
   const path = usePathname();
   const homePrefix = ['/en', '/ko', '/en-ko', '/en-us', '/de'];
-  const homePage = homePrefix.some((val) => _.isEqual(val, path));
+  const normalizedPath = path?.replace(/\/$/, '') || '';
+  const homePage = homePrefix.some((val) => _.isEqual(val, normalizedPath));
   const [logo, setLogo] = useState('');
   const [selectedView, setSelectedView] = useState('');
   const [selectedTitle, setSelectedTitle] = useState('');
