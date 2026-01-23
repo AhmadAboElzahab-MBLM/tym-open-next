@@ -8,6 +8,7 @@ import handleSpecificData from '@/helpers/handle-specific-data';
 const regions = {
   en: 'International',
   ko: '한국',
+  de: 'Deutschland',
   'en-ko': 'South Korea',
   'en-us': 'North America',
 };
@@ -16,7 +17,7 @@ async function getHomeContent() {
   try {
     const lang = process.env.NEXT_PUBLIC_LANG;
     const region = regions[lang];
-    const locale = lang === 'ko' ? 'ko' : 'en-us';
+    const locale = lang === 'ko' ? 'ko' : lang === 'de' ? 'de' : 'en-us';
     const path = lang; // Homepage path is just the lang prefix
 
     const [data, settings, translations] = await Promise.all([

@@ -11,6 +11,7 @@ function HeaderMobileMenuLangSwitcher() {
   const regions = {
     en: 'International',
     ko: '한국',
+    de: 'Deutschland',
     'en-ko': 'South Korea',
     'en-us': 'North America',
   };

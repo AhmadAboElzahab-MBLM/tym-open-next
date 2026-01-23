@@ -31,6 +31,7 @@ function FooterDesktopBottom({
   const regions = {
     en: 'International',
     ko: '한국 (KO)',
+    de: 'Deutschland',
     'en-ko': 'South Korea',
     'en-us': 'North America',
   };

@@ -18,6 +18,7 @@ import handleSpecificData from '@/helpers/handle-specific-data';
 const regions = {
   en: 'International',
   ko: '한국',
+  de: 'Deutschland',
   'en-ko': 'South Korea',
   'en-us': 'North America',
 };
@@ -26,7 +27,7 @@ async function getContentByParams(params) {
   try {
     const lang = process.env.NEXT_PUBLIC_LANG;
     const region = regions[lang];
-    const locale = lang === 'ko' ? 'ko' : 'en-us';
+    const locale = lang === 'ko' ? 'ko' : lang === 'de' ? 'de' : 'en-us';
     // Reconstruct the full path with lang prefix for Umbraco
     const path = `${lang}/${join(params.slug, '/')}`;
 
@@ -56,7 +57,7 @@ async function getContentByParams(params) {
 export async function generateStaticParams() {
   const targetLang = process.env.NEXT_PUBLIC_LANG;
 
-  const locales = ['en-us', 'ko'];
+  const locales = ['en-us', 'ko', 'de'];
   const contentTypes = [
     'home',
     'page',
@@ -107,6 +108,13 @@ export async function generateStaticParams() {
     } else if (includes(path, '/ko/')) {
       if (targetLang === 'ko' && !includes(excludedRegions, 'South Korea')) {
         const slugArray = createSlug(path, 'ko');
+        if (slugArray.length > 0) {
+          result.push({ slug: slugArray });
+        }
+      }
+    } else if (includes(path, '/de/')) {
+      if (targetLang === 'de' && !includes(excludedRegions, 'Deutschland')) {
+        const slugArray = createSlug(path, 'de');
         if (slugArray.length > 0) {
           result.push({ slug: slugArray });
         }

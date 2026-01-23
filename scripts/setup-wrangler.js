@@ -20,15 +20,12 @@ const wranglerConfig = {
   durable_objects: {
     bindings: [{ name: 'NEXT_TAG_CACHE_DO_SHARDED', class_name: 'DOShardedTagCache' }],
   },
-
-  // Add migrations for the Durable Object
   migrations: [
     {
       tag: 'v1',
       new_sqlite_classes: ['DOShardedTagCache'],
     },
   ],
-
   assets: { binding: 'ASSETS', directory: '.open-next/assets' },
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],

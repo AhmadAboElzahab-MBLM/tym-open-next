@@ -13,7 +13,7 @@ import Loading from '@/components/layout/loading';
 
 const data = {
   'en-us': {
-    title: '“Well, This Page is Out to Pasture!”',
+    title: '"Well, This Page is Out to Pasture!"',
     subtitle: '404 page NOT FOUND',
     text: "Looks like this page decided to take a tractor ride. Let's get you back on track!",
     links: [
@@ -34,6 +34,17 @@ const data = {
       { name: '딜러점 찾기', url: '/find-a-dealer' },
     ],
   },
+  de: {
+    title: '"Hoppla, diese Seite ist auf dem Feld unterwegs!"',
+    subtitle: '404 Seite NICHT GEFUNDEN',
+    text: 'Diese Seite hat sich wohl mit dem Traktor auf den Weg gemacht. Lassen Sie uns Ihnen weiterhelfen!',
+    links: [
+      { name: 'Traktoren', url: '/products/tractors' },
+      { name: 'Kundenservice', url: '/parts-support' },
+      { name: 'Über TYM', url: '/about' },
+      { name: 'Händler finden', url: '/find-a-dealer' },
+    ],
+  },
 };
 
 export default function Page() {
@@ -44,12 +55,13 @@ export default function Page() {
   const regions = {
     en: 'International',
     ko: '한국',
+    de: 'Deutschland',
     'en-ko': 'South Korea',
     'en-us': 'North America',
   };
   const lang = _.chain(params).split('/').filter(Boolean).head().value() || 'en';
   const region = regions[lang];
-  const locale = lang === 'ko' ? 'ko' : 'en-us';
+  const locale = lang === 'ko' ? 'ko' : lang === 'de' ? 'de' : 'en-us';
   const loadHeaderFooter = _.isEmpty(settings) || _.isEmpty(products);
   const { title, subtitle, text, links } = data[locale];
 

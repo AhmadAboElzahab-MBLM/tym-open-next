@@ -32,6 +32,7 @@ function FindDealer({ data, id }) {
 
   const regions = {
     en: 'International',
+    de: 'Deutschland',
     'en-us': 'North America',
     'en-ko': 'South Korea',
     ko: 'South Korea',

@@ -24,7 +24,7 @@ const seriesUrls = [
 
 export const fetchNavigationProducts = async (lang) => {
   try {
-    const umbLocale = lang === 'ko' ? 'ko' : 'en-us';
+    const umbLocale = lang === 'ko' ? 'ko' : lang === 'de' ? 'de' : 'en-us';
     const myHeaders = new Headers();
     const key = process.env.NEXT_PUBLIC_UMBRACO_API_KEY;
     myHeaders.append('Api-Key', key);
@@ -40,6 +40,7 @@ export const fetchNavigationProducts = async (lang) => {
     const regions = {
       en: 'International',
       ko: '한국',
+      de: 'Deutschland',
       'en-ko': 'South Korea',
       'en-us': 'North America',
     };
