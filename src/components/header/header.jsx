@@ -25,7 +25,7 @@ export default function Header({ id, data, lang, region, isDetail, products, isD
     null,
   );
 
-  const paths = ['/en', '/en-ko', '/en-us', '/ko'];
+  const paths = ['/en', '/en-ko', '/en-us', '/ko', '/de'];
 
   const path = usePathname();
   const homePath = `/${path.split('/').filter(Boolean)[0]}`;
