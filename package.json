@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "setup-wrangler": "node scripts/setup-wrangler.js",
-    "deploy": "npm run setup-wrangler && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "deploy": "npm run setup-wrangler && R2_ACCESS_KEY_ID=\"$R2_ACCESS_KEY_ID\" R2_SECRET_ACCESS_KEY=\"$R2_SECRET_ACCESS_KEY\" CF_ACCOUNT_ID=\"$CF_ACCOUNT_ID\" opennextjs-cloudflare build && R2_ACCESS_KEY_ID=\"$R2_ACCESS_KEY_ID\" R2_SECRET_ACCESS_KEY=\"$R2_SECRET_ACCESS_KEY\" CF_ACCOUNT_ID=\"$CF_ACCOUNT_ID\" opennextjs-cloudflare deploy",
     "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
