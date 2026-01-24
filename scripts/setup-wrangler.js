@@ -6,7 +6,12 @@ const workerName = `tym-open-next-${lang}`;
 const bucketName = `tym-open-next-cache-${lang}`;
 const customDomain = process.env.CUSTOM_DOMAIN || '';
 
+// Generate unique build ID
+const buildId = Date.now().toString();
+const cachePrefix = `cache-${buildId}`;
+
 console.log(`Using NEXT_PUBLIC_LANG: ${lang}`);
+console.log(`Using cache prefix: ${cachePrefix}`);
 
 const wranglerConfig = {
   $schema: 'node_modules/wrangler/config-schema.json',
@@ -30,7 +35,10 @@ const wranglerConfig = {
   images: { binding: 'IMAGES' },
   services: [{ binding: 'WORKER_SELF_REFERENCE', service: workerName }],
   observability: { enabled: true },
-  vars: customDomain ? { OPEN_NEXT_ORIGIN: customDomain } : {},
+  vars: {
+    ...(customDomain ? { OPEN_NEXT_ORIGIN: customDomain } : {}),
+    NEXT_INC_CACHE_R2_PREFIX: cachePrefix,
+  },
 };
 
 fs.writeFileSync(
