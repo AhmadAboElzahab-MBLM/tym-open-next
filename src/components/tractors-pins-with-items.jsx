@@ -7,7 +7,6 @@ import GlobalContext from '@/context/global-context';
 import { motion } from 'framer-motion';
 import Icons from '@/components/layout/icons';
 import _ from 'lodash';
-import { getTranslationByKey } from '@/utils/translation-helper';
 import BoxedContainer from './layout/boxed-container';
 import TitleSection from './layout/title-section';
 import ImageModal from './layout/image-modal';
@@ -59,16 +58,14 @@ export default function TractorsPinsWithItems({ data, id }) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.5 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-y-4 pb-10
-            pt-10 lg:gap-y-[62px] lg:pb-[92px] lg:pt-20">
+            className="flex flex-col gap-y-4 pb-10 pt-10 lg:gap-y-[62px] lg:pb-[92px] lg:pt-20">
             <div className="flex flex-col items-center gap-y-3 text-center lg:gap-y-[32px]">
               {_.isEmpty(title) || !isMarkupValid(title) || (
                 <TitleSection data={title} className="max-w-[480px]" />
               )}
               {_.isEmpty(text) || !isMarkupValid(text) || (
                 <div
-                  className="max-w-[800px] font-noto text-clamp14to18 font-normal leading-1.77
-                  text-[#000]"
+                  className="max-w-[800px] font-noto text-clamp14to18 font-normal leading-1.77 text-[#000]"
                   dangerouslySetInnerHTML={{ __html: text }}
                 />
               )}
@@ -103,14 +100,11 @@ export default function TractorsPinsWithItems({ data, id }) {
                       </SwiperSlide>
                     ))}
                     {_.isEmpty(images) || (
-                      <div
-                        className="absolute top-1/2 z-10 flex w-full flex-row
-                      justify-between gap-x-[30px]">
+                      <div className="absolute top-1/2 z-10 flex w-full flex-row justify-between gap-x-[30px]">
                         <button
                           type="button"
                           onClick={handlePrev}
-                          className={`h-[40px] w-[15px] svg-child-path:stroke-black md:w-[20px]
-                          tractors-pin-prev-button ${currIndex === 0 ? 'opacity-50' : 'opacity-100'}`}>
+                          className={`tractors-pin-prev-button h-[40px] w-[15px] svg-child-path:stroke-black md:w-[20px] ${currIndex === 0 ? 'opacity-50' : 'opacity-100'}`}>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 40" fill="none">
                             <path d="M21 38L3 20L21 2" stroke="#1A1A1A" strokeWidth="3" />
                           </svg>
@@ -118,8 +112,7 @@ export default function TractorsPinsWithItems({ data, id }) {
                         <button
                           type="button"
                           onClick={handleNext}
-                          className={`h-[40px] w-[15px] svg-child-path:stroke-black md:w-[20px]
-                          tractors-pin-next-button ${currIndex === images.length - 1 ? 'opacity-50' : 'opacity-100'}`}>
+                          className={`tractors-pin-next-button h-[40px] w-[15px] svg-child-path:stroke-black md:w-[20px] ${currIndex === images.length - 1 ? 'opacity-50' : 'opacity-100'}`}>
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 40" fill="none">
                             <path d="M2 2L20 20L2 38" stroke="#1A1A1A" strokeWidth="3" />
                           </svg>
@@ -134,9 +127,7 @@ export default function TractorsPinsWithItems({ data, id }) {
                   <div
                     key={index}
                     className="flex flex-col justify-between gap-y-3 md:gap-y-[15px]">
-                    <span
-                      className="font-noto text-[16px] font-normal leading-[22px] text-primary
-                      lg:text-[18px] lg:leading-[28px]">
+                    <span className="font-noto text-[16px] font-normal leading-[22px] text-primary lg:text-[18px] lg:leading-[28px]">
                       {item.content.properties.title}
                     </span>
                     <div className="relative text-center">
