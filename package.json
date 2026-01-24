@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "@next/third-parties": "^15.1.0",
-    "@opennextjs/cloudflare": "^1.14.4",
+    "@opennextjs/cloudflare": "^1.15.1",
     "@react-google-maps/api": "^2.20.3",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.7.9",
