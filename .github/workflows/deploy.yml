@@ -12,7 +12,6 @@ jobs:
     strategy:
       matrix:
         lang: [en, en-us, ko, en-ko, de]
-      # Remove max-parallel to deploy all workers simultaneously
 
     steps:
       - name: Checkout code
@@ -67,6 +66,7 @@ jobs:
           # Cloudflare credentials
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
 
           # R2 credentials
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
@@ -77,7 +77,7 @@ jobs:
           WORKER_NAME: ${{ steps.names.outputs.worker }}
           BUCKET_NAME: ${{ steps.names.outputs.bucket }}
 
-          # Umbraco endpoints (conditional based on branch)
+          # Umbraco endpoints
           NEXT_PUBLIC_UMBRACO_BASE_IMAGE_URL:
             ${{ github.ref == 'refs/heads/main' && secrets.PRODUCTION_UMBRACO_BASE_IMAGE_URL ||
             secrets.STAGING_UMBRACO_BASE_IMAGE_URL }}
@@ -101,8 +101,6 @@ jobs:
           echo "   Worker:      ${{ steps.names.outputs.worker }}"
           echo "   Bucket:      ${{ steps.names.outputs.bucket }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-
-          # Run the full deploy script (includes setup-wrangler, build, deploy, cleanup)
           npm run deploy
 
       - name: Set Worker Secrets
@@ -112,18 +110,11 @@ jobs:
         run: |
           echo "🔐 Setting secrets for: ${{ steps.names.outputs.worker }}"
 
-          # Set R2 credentials
           echo "${{ secrets.R2_ACCESS_KEY_ID }}" | npx wrangler secret put R2_ACCESS_KEY_ID --name ${{ steps.names.outputs.worker }}
           echo "${{ secrets.R2_SECRET_ACCESS_KEY }}" | npx wrangler secret put R2_SECRET_ACCESS_KEY --name ${{ steps.names.outputs.worker }}
-
-          # Set Cloudflare Account ID
           echo "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" | npx wrangler secret put CLOUDFLARE_ACCOUNT_ID --name ${{ steps.names.outputs.worker }}
-
-          # Set HubSpot credentials
           echo "${{ secrets.NEXT_PUBLIC_HUBSPOT_API_KEY }}" | npx wrangler secret put NEXT_PUBLIC_HUBSPOT_API_KEY --name ${{ steps.names.outputs.worker }}
           echo "${{ secrets.HUBSPOT_TOKEN }}" | npx wrangler secret put HUBSPOT_TOKEN --name ${{ steps.names.outputs.worker }}
-
-          # Set Umbraco API Key
           echo "${{ secrets.NEXT_PUBLIC_UMBRACO_API_KEY }}" | npx wrangler secret put NEXT_PUBLIC_UMBRACO_API_KEY --name ${{ steps.names.outputs.worker }}
 
           echo "   ✅ All secrets set"
@@ -136,6 +127,5 @@ jobs:
           echo "   Language:    ${{ matrix.lang }}"
           echo "   Environment: ${{ steps.env.outputs.name }}"
           echo "   Worker:      ${{ steps.names.outputs.worker }}"
-          echo "   Bucket:      ${{ steps.names.outputs.bucket }}"
           echo "   URL:         https://${{ steps.names.outputs.worker }}.workers.dev"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
