@@ -121,6 +121,8 @@ export async function generateStaticParams() {
       }
     }
 
+
+
     return result;
   }, []);
   return paths;
