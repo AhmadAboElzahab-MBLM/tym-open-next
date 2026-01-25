@@ -74,7 +74,7 @@ function BuildYourOwnContent({ region, setRegion }) {
 
   const fixServerData = async (data, reg) => {
     const r = reg == 'ko' || reg == 'en-ko' ? 'South Korea' : 'International';
-    const regionsArr = ['North America', 'International', 'South Korea'];
+    const regionsArr = ['North America', 'International', 'South Korea', 'Deutschland'];
     const item = data;
 
     const prop = item.properties;
@@ -86,7 +86,7 @@ function BuildYourOwnContent({ region, setRegion }) {
     prop.hasChildren = false;
     prop.AvailableInRegions = prop.excludedRegions
       ? regionsArr.filter((item) => !prop.excludedRegions.includes(item))
-      : [];
+      : regionsArr;
     prop.HasAddons = !!(prop.addOns && prop.addOns.items && prop.addOns.items.length);
     prop.Prices = [
       {
@@ -177,6 +177,7 @@ function BuildYourOwnContent({ region, setRegion }) {
   };
 
   const fetchData = async () => {
+    console.log('region', region);
     try {
       const currRegion = region === 'en' ? 'en-us' : region;
       const baseUmbracoUrl = process.env.NEXT_PUBLIC_UMBRACO_ENDPOINT;
@@ -236,7 +237,7 @@ function BuildYourOwnContent({ region, setRegion }) {
     // loadScript('https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js');
     // loadScript('/scripts/jobsite.js');
     // loadScript('https://d2q0dg49mzo6xk.cloudfront.net/webplayer/beta-webassembly-new/posweb.js');
-    if (window.location.href.includes('staging.') || window.location.href.includes('localhost')) {
+    if (window.location.href.includes('staging.')) {
       loadScript(
         'https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react-staging/static/js/pos_web.js',
       );
@@ -244,8 +245,8 @@ function BuildYourOwnContent({ region, setRegion }) {
         'https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react-staging/static/css/pos_web.css',
       );
     } else {
-      loadScript('https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react/static/js/pos_web.js');
-      loadCssFile('https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react/static/css/pos_web.css');
+      loadScript('https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react-dev/static/js/pos_web.js');
+      loadCssFile('https://d2q0dg49mzo6xk.cloudfront.net/webplayer/react-dev/static/css/pos_web.css');
     }
   }, [region]);
 
