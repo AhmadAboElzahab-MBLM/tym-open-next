@@ -12,7 +12,7 @@ jobs:
     strategy:
       matrix:
         lang: [en, en-us, ko, en-ko, de]
-      max-parallel: 1 # Deploy one at a time to avoid rate limits
+      # Remove max-parallel to deploy all workers simultaneously
 
     steps:
       - name: Checkout code
@@ -62,44 +62,48 @@ jobs:
             echo "   ✅ Bucket created"
           fi
 
-      - name: Build Next.js application
+      - name: Build and Deploy Worker
         env:
+          # Cloudflare credentials
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+          # R2 credentials
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+
+          # Language and worker settings
           NEXT_PUBLIC_LANG: ${{ matrix.lang }}
+          WORKER_NAME: ${{ steps.names.outputs.worker }}
+          BUCKET_NAME: ${{ steps.names.outputs.bucket }}
+
+          # Umbraco endpoints (conditional based on branch)
           NEXT_PUBLIC_UMBRACO_BASE_IMAGE_URL:
             ${{ github.ref == 'refs/heads/main' && secrets.PRODUCTION_UMBRACO_BASE_IMAGE_URL ||
             secrets.STAGING_UMBRACO_BASE_IMAGE_URL }}
           NEXT_PUBLIC_UMBRACO_ENDPOINT:
             ${{ github.ref == 'refs/heads/main' && secrets.PRODUCTION_UMBRACO_ENDPOINT ||
             secrets.STAGING_UMBRACO_ENDPOINT }}
+
+          # Shared API keys
           NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY }}
           NEXT_PUBLIC_HUBSPOT_API_KEY: ${{ secrets.NEXT_PUBLIC_HUBSPOT_API_KEY }}
           HUBSPOT_TOKEN: ${{ secrets.HUBSPOT_TOKEN }}
           NEXT_PUBLIC_HUBSPOT_DEALERS_URL: ${{ secrets.NEXT_PUBLIC_HUBSPOT_DEALERS_URL }}
           NEXT_PUBLIC_UMBRACO_API_KEY: ${{ secrets.NEXT_PUBLIC_UMBRACO_API_KEY }}
           NEXT_PUBLIC_UMBRACO_SEARCH_API: ${{ secrets.NEXT_PUBLIC_UMBRACO_SEARCH_API }}
-          WORKER_NAME: ${{ steps.names.outputs.worker }}
-          BUCKET_NAME: ${{ steps.names.outputs.bucket }}
         run: |
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          echo "🔨 Building Next.js Application"
+          echo "🚀 Building and Deploying"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
           echo "   Language:    ${{ matrix.lang }}"
           echo "   Environment: ${{ steps.env.outputs.name }}"
           echo "   Worker:      ${{ steps.names.outputs.worker }}"
           echo "   Bucket:      ${{ steps.names.outputs.bucket }}"
           echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
-          npm run build
 
-      - name: Deploy to Cloudflare Workers
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          NEXT_PUBLIC_LANG: ${{ matrix.lang }}
-          WORKER_NAME: ${{ steps.names.outputs.worker }}
-          BUCKET_NAME: ${{ steps.names.outputs.bucket }}
-        run: |
-          echo "🚀 Deploying worker: ${{ steps.names.outputs.worker }}"
-          npx wrangler deploy --name ${{ steps.names.outputs.worker }}
+          # Run the full deploy script (includes setup-wrangler, build, deploy, cleanup)
+          npm run deploy
 
       - name: Set Worker Secrets
         env:
