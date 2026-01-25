@@ -2,16 +2,28 @@ import fs from 'fs';
 import path from 'path';
 
 const lang = process.env.NEXT_PUBLIC_LANG || 'no-lang';
-const workerName = `tym-open-next-${lang}`;
-const bucketName = `tym-open-next-cache-${lang}`;
+
+// Use WORKER_NAME and BUCKET_NAME from env if provided (for production/staging deploys)
+// Otherwise fall back to default naming convention
+const workerName = process.env.WORKER_NAME || `tym-open-next-${lang}`;
+const bucketName = process.env.BUCKET_NAME || `tym-open-next-cache-${lang}`;
 const customDomain = process.env.CUSTOM_DOMAIN || '';
 
 // Generate unique build ID
 const buildId = Date.now().toString();
 const cachePrefix = `cache-${buildId}`;
 
-console.log(`Using NEXT_PUBLIC_LANG: ${lang}`);
-console.log(`Using cache prefix: ${cachePrefix}`);
+console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+console.log(`🔧 Wrangler Config Generator`);
+console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+console.log(`   NEXT_PUBLIC_LANG: ${lang}`);
+console.log(`   WORKER_NAME:      ${workerName}`);
+console.log(`   BUCKET_NAME:      ${bucketName}`);
+console.log(`   Cache Prefix:     ${cachePrefix}`);
+if (customDomain) {
+  console.log(`   Custom Domain:    ${customDomain}`);
+}
+console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
 
 const wranglerConfig = {
   $schema: 'node_modules/wrangler/config-schema.json',
@@ -45,4 +57,5 @@ fs.writeFileSync(
   path.join(process.cwd(), 'wrangler.jsonc'),
   JSON.stringify(wranglerConfig, null, 2),
 );
-console.log(`worker created: ${workerName}`);
+
+console.log(`✅ wrangler.jsonc created for: ${workerName}\n`);

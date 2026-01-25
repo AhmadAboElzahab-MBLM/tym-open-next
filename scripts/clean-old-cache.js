@@ -1,7 +1,20 @@
 import { S3Client, ListObjectsV2Command, DeleteObjectsCommand } from '@aws-sdk/client-s3';
 
-const { CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, NEXT_PUBLIC_LANG } =
-  process.env;
+const {
+  CLOUDFLARE_ACCOUNT_ID,
+  R2_ACCESS_KEY_ID,
+  R2_SECRET_ACCESS_KEY,
+  BUCKET_NAME, // Use BUCKET_NAME env var instead of constructing it
+} = process.env;
+
+// Fallback for local development
+const BUCKET = BUCKET_NAME || `tym-open-next-cache-${process.env.NEXT_PUBLIC_LANG || 'no-lang'}`;
+
+if (!CLOUDFLARE_ACCOUNT_ID || !R2_ACCESS_KEY_ID || !R2_SECRET_ACCESS_KEY) {
+  console.error('❌ Missing required environment variables:');
+  console.error('   CLOUDFLARE_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY');
+  process.exit(1);
+}
 
 const client = new S3Client({
   region: 'auto',
@@ -9,15 +22,17 @@ const client = new S3Client({
   credentials: { accessKeyId: R2_ACCESS_KEY_ID, secretAccessKey: R2_SECRET_ACCESS_KEY },
 });
 
-const BUCKET = `tym-open-next-cache-${NEXT_PUBLIC_LANG || 'no-lang'}`;
 const KEEP_BUILDS = 2;
 
 async function cleanOldCache() {
-  console.log(`Cleaning old cache from: ${BUCKET}`);
+  console.log(`\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
+  console.log(`🧹 Cleaning old cache from: ${BUCKET}`);
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━`);
 
   const prefixes = new Set();
   let token;
 
+  // Collect all cache prefixes
   do {
     const res = await client.send(
       new ListObjectsV2Command({ Bucket: BUCKET, ContinuationToken: token }),
@@ -32,13 +47,21 @@ async function cleanOldCache() {
   const sorted = Array.from(prefixes).sort().reverse();
   const toDelete = sorted.slice(KEEP_BUILDS);
 
-  console.log(`Found ${sorted.length} builds, keeping ${KEEP_BUILDS}, deleting ${toDelete.length}`);
+  console.log(`   Found: ${sorted.length} builds`);
+  console.log(`   Keeping: ${KEEP_BUILDS} most recent`);
+  console.log(`   Deleting: ${toDelete.length} old builds\n`);
+
+  if (toDelete.length === 0) {
+    console.log('   ✅ No old cache to clean\n');
+    return;
+  }
 
   for (const prefix of toDelete) {
     await deletePrefix(prefix);
   }
 
-  console.log('Cleanup complete!');
+  console.log(`\n✅ Cleanup complete!`);
+  console.log(`━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`);
 }
 
 async function deletePrefix(prefix) {
@@ -58,10 +81,10 @@ async function deletePrefix(prefix) {
     token = res.NextContinuationToken;
   } while (token);
 
-  console.log(`Deleted ${prefix}: ${deleted} files`);
+  console.log(`   🗑️  Deleted ${prefix}: ${deleted} files`);
 }
 
 cleanOldCache().catch((e) => {
-  console.error(e);
+  console.error('\n❌ Error during cleanup:', e.message);
   process.exit(1);
 });
