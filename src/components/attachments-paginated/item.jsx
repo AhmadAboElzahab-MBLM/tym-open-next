@@ -91,7 +91,10 @@ function Item({ item, currProduct, index, handleClick, width }) {
                         return compatibleProductItem.startsWith('NA:');
                       } if (lang === 'ko' || lang === 'en-ko') {
                         return compatibleProductItem.startsWith('SK:');
+                      } if (lang === 'de') {
+                        return compatibleProductItem.startsWith('DE:');
                       }
+                      
                       return false;
                     }),
                   (filteredItem, index1, array) => (
@@ -166,6 +169,8 @@ function Item({ item, currProduct, index, handleClick, width }) {
                               return compatibleProductItem.startsWith('NA:');
                             } if (lang === 'ko' || lang === 'en-ko') {
                               return compatibleProductItem.startsWith('SK:');
+                            } if (lang === 'de') {
+                              return compatibleProductItem.startsWith('DE:');
                             }
                             return false;
                           }),
