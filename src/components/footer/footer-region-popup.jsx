@@ -7,6 +7,7 @@ export default function FooterRegionPopup({
   southKoreaText,
   internationalText,
   northAmericaText,
+  deutschlandText,
 }) {
   return (
     <div
@@ -89,6 +90,26 @@ export default function FooterRegionPopup({
                 className="flex h-[40px] w-[100px] items-center justify-center bg-[#C91820]
               font-sans text-[13px] font-bold uppercase leading-[185%] text-white region-selector-en-button">
                 ENGLISH
+              </button>
+            </div>
+          </div>
+          <div className="flex flex-col justify-between gap-y-4 md:w-[calc(33.3333%-44px)]">
+            <div className="flex flex-col gap-y-2 md:gap-y-4">
+              <div className="hidden h-[177px] md:block">
+                <Icons name="International" />
+              </div>
+              <h4 className="font-noto text-clamp14to15 font-bold text-black">Deutschland</h4>
+              <p className="font-noto text-clamp14to15 font-normal text-black">
+                {deutschlandText}
+              </p>
+            </div>
+            <div className="flex flex-row gap-4 md:pt-4">
+              <button
+                type="button"
+                onClick={() => handleRegionChange('de')}
+                className="flex h-[40px] w-[100px] items-center justify-center bg-[#C91820]
+              font-sans text-[13px] font-bold uppercase leading-[185%] text-white region-selector-en-button">
+                DEUTSCH
               </button>
             </div>
           </div>

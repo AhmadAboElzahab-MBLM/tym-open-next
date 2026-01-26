@@ -20,7 +20,8 @@ function FooterDesktopBottom({
   northAmericaText,
   internationalText,
   dealershipIntl,
-  dealershipNa
+  dealershipNa,
+  deutschlandText,
 }) {
   const { lang } = useContext(GlobalContext);
   const path = usePathname();
@@ -64,9 +65,6 @@ function FooterDesktopBottom({
   useEffect(() => {
     document.documentElement.lang = lang;
   }, [lang]);
-
-  const isNaOrInt = _.includes(['North America', 'International'], region);
-
 
   return (
     <>
@@ -200,6 +198,7 @@ function FooterDesktopBottom({
           internationalText={internationalText}
           northAmericaText={northAmericaText}
           southKoreaText={southKoreaText}
+          deutschlandText={deutschlandText}
         />
       )}
     </>

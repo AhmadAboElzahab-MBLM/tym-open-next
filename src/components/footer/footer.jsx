@@ -59,6 +59,7 @@ export default function Footer({ data, region, lang, translations }) {
   const internationalText = _.get(data, 'properties.internationalText', '');
   const northAmericaText = _.get(data, 'properties.northAmericaText', '');
   const southKoreaText = _.get(data, 'properties.southKoreaText', '');
+  const deutschlandText = _.get(data, 'properties.deutschlandText', '');
   const buildYourOwn = paths.includes('build-your-own');
 
   return (
@@ -145,6 +146,7 @@ export default function Footer({ data, region, lang, translations }) {
             lang={lang}
             northAmericaText={northAmericaText}
             internationalText={internationalText}
+            deutschlandText={deutschlandText}
             southKoreaText={southKoreaText}
           />
         </div>
