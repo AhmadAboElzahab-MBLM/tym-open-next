@@ -13,7 +13,7 @@ export default function FooterRegionPopup({
     <div
       className="fixed bottom-0 left-0 right-0 top-0 z-[200] flex h-screen w-full
     items-center justify-center bg-[#E5E5E5] bg-opacity-50 px-6">
-      <div className="w-[994px] border border-[#ccc] bg-white md:min-h-[584px]">
+      <div className="w-[1240px] border border-[#ccc] bg-white md:min-h-[584px]">
         <div className="border-b border-[#ccc]">
           <div className="flex flex-row justify-between gap-5 p-5 md:p-12">
             <h3
