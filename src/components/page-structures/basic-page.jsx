@@ -72,13 +72,14 @@ function BasicPage(props) {
       {description && <meta property="og:description" content={description} />}
       {featuredImage && <meta property="og:image" content={featuredImage[0]?.url} />}
       <meta property="og:type" content="website" />
-      <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : locale === 'en-US' ? 'en_US' : 'en_US'} />
+      <meta property="og:locale" content={locale === 'ko' ? 'ko_KR' : locale === 'de' ? 'de_DE' : locale === 'en-US' ? 'en_US' : 'en_US'} />
 
       {/* Hreflang tags for all language versions */}
       <link rel="alternate" hrefLang="en" href={`${baseUrl}${currentPath}`} />
       <link rel="alternate" hrefLang="en-US" href={`${baseUrl}/en-us${currentPath}`} />
       <link rel="alternate" hrefLang="en-KR" href={`${baseUrl}/en-ko${currentPath}`} />
       <link rel="alternate" hrefLang="ko" href={`${baseUrl}/ko${currentPath}`} />
+      <link rel="alternate" hrefLang="de" href={`${baseUrl}/de${currentPath}`} />
       <link rel="alternate" hrefLang="x-default" href={`${baseUrl}${currentPath}`} />
 
       {/* Twitter Card tags */}
