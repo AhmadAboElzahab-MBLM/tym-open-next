@@ -56,6 +56,7 @@ import Instagram from './instagram.svg';
 import Innovation from './innovation.svg';
 import Interative from './interative.svg';
 import International from './international.svg';
+import Deutschland from './deutschland.svg';
 import JobTerrain from './job-terrain.svg';
 import HigherEfficiency from './higher-efficiency.svg';
 import IncreasedProfit from './increased-profit.svg';
@@ -205,6 +206,7 @@ export default {
   Clearing,
   Close,
   Close2,
+  Deutschland,
   Clutch,
   Construction,
   CustomerCare,
