@@ -237,3 +237,16 @@ export async function getAllSlugs(contentType, locale) {
     return [];
   }
 }
+
+export async function getTranslations() {
+  try {
+    const url = `${process.env.NEXT_PUBLIC_UMBRACO_TRANSLATIONS_API}`;
+    const res = await fetch(url);
+    const data = await res.json();
+
+    return data;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+}

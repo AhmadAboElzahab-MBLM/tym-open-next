@@ -1,6 +1,6 @@
 import React from 'react';
 import { get } from 'lodash';
-import { getByContentType, getByPath, getByContentTypeSpecificData } from '@/services/umbraco';
+import { getByContentType, getByPath, getByContentTypeSpecificData, getTranslations } from '@/services/umbraco';
 import BasicPage from '@/components/page-structures/basic-page';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import handleSpecificData from '@/helpers/handle-specific-data';
@@ -20,13 +20,12 @@ async function getHomeContent() {
     const locale = lang === 'ko' ? 'ko' : lang === 'de' ? 'de' : 'en-us';
     const path = lang; // Homepage path is just the lang prefix
 
-    const [data, settings, translations] = await Promise.all([
+    const [data, settings] = await Promise.all([
       getByPath(path, region),
       getByContentType('settings', region, locale, lang).then((_settings) => _settings[0]),
-      getByContentType('translations', region, locale, lang).then(
-        (_translations) => _translations[0],
-      ),
     ]);
+
+    const translations = await getTranslations();
 
     if (!data) throw new Error('No data fetched from Umbraco.');
 
@@ -55,7 +54,8 @@ export default async function Page() {
   const navigationProducts = await fetchHeaderProducts(lang);
   const allPreOwnedProducts = await getByContentTypeSpecificData('preOwned', region, locale, lang);
 
-  const translations = get(translationItems, 'properties.translationItems.items', []);
+  // const translations = get(translationItems, 'properties.translationItems.items', []);
+  const translations = translationItems;
   const blocks = get(data, 'properties.body.items', []);
   const bodyData = get(data, 'properties', []);
   const mainClass = 'min-h-full';

@@ -657,7 +657,7 @@ export default function RequestPart({ data, id, region, products }) {
             <div className="flex flex-row flex-wrap items-end gap-5 lg:gap-8">
               <div className="w-full sm:max-w-[48%] lg:max-w-[135px]">
                 <SelectDropdown
-                  defaultValue={getTranslationByKey('Machine type')}
+                  defaultValue={getTranslationByKey('Machine type', translations, lang)}
                   items={categories}
                   partsFilter
                   selectedValue={{
@@ -674,7 +674,7 @@ export default function RequestPart({ data, id, region, products }) {
               </div>
               <div className="w-full sm:max-w-[48%] lg:max-w-[160px]">
                 <SelectDropdown
-                  defaultValue={getTranslationByKey('Model number')}
+                  defaultValue={getTranslationByKey('Model number', translations, lang)}
                   items={titleOptions.map((option) => option.label)}
                   selectedValue={{
                     value: selectedModel,

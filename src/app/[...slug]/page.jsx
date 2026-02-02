@@ -5,6 +5,7 @@ import {
   getByContentType,
   getByPath,
   getByContentTypeSpecificData,
+  getTranslations,
 } from '@/services/umbraco';
 import BasicPage from '@/components/page-structures/basic-page';
 import ProductsPage from '@/components/page-structures/products-page';
@@ -31,13 +32,12 @@ async function getContentByParams(params) {
     // Reconstruct the full path with lang prefix for Umbraco
     const path = `${lang}/${join(params.slug, '/')}`;
 
-    const [data, settings, translations] = await Promise.all([
+    const translations = await getTranslations();
+    const [data, settings] = await Promise.all([
       getByPath(path, region),
       getByContentType('settings', region, locale, lang).then((_settings) => _settings[0]),
-      getByContentType('translations', region, locale, lang).then(
-        (_translations) => _translations[0],
-      ),
     ]);
+
 
     if (isEmpty(data)) throw new Error('No data fetched from Umbraco.');
 
@@ -121,8 +121,6 @@ export async function generateStaticParams() {
       }
     }
 
-
-
     return result;
   }, []);
   return paths;
@@ -130,9 +128,9 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
   const resolvedParams = await params;
+  
 
-  const { data, settings, translationItems, region, lang, locale } =
-    await getContentByParams(resolvedParams);
+  const { data, settings, translationItems, region, lang, locale } = await getContentByParams(resolvedParams);
   const { product, customerStory, promotion, mediaItem, howTo } = await handleSpecificData(
     data,
     region,
@@ -145,7 +143,9 @@ export default async function Page({ params }) {
   // Fetch all pre-owned products array (similar to how products are fetched)
   const allPreOwnedProducts = await getByContentTypeSpecificData('preOwned', region, locale, lang);
 
-  const translations = get(translationItems, 'properties.translationItems.items', []);
+  // const translations = get(translationItems, 'properties.translationItems.items', []);
+  const translations = translationItems;
+  console.log('translations', translations);
   const blocks = get(data, 'properties.body.items', []);
   const contentType = get(data, 'contentType', '');
   const bodyData = get(data, 'properties', []);

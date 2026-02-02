@@ -15,12 +15,13 @@ import BoxedContainer from './layout/boxed-container';
 import Button from './layout/button';
 import SliderPrevNext from './layout/slider-prev-next';
 import TitleSection from './layout/title-section';
+import _ from 'lodash';
 
 export default function ProductPromotionsSlider({ data, id, promotion, locale }) {
   const classname = get(data, 'properties.classname', null);
-  const title = _.get(data, 'properties.title', '');
-  const category = _.get(data, 'properties.category', '');
-  const requestQuote = _.get(data, 'properties.requestQuote[0]', {});
+  const title = get(data, 'properties.title', '');
+  const category = get(data, 'properties.category', '');
+  const requestQuote = get(data, 'properties.requestQuote[0]', {});
   const relatedToValues = promotion.map((item) => get(item, 'properties.relatedTo', []));
   const { translations, lang } = useContext(GlobalContext);
   const [currentIndex, setCurrentIndex] = useState(0);

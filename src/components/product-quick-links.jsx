@@ -9,7 +9,7 @@ import { getTranslationByKey } from '@/utils/translation-helper';
 import BoxedContainer from './layout/boxed-container';
 
 export default function ProductQuickLinks({ data }) {
-  const { lang } = useContext(GlobalContext);
+  const { lang, translations } = useContext(GlobalContext);
   const quickLinks = _.get(data, 'properties.quickLinksItems.items', []);
   if (_.isEmpty(quickLinks)) return null;
 
@@ -25,7 +25,7 @@ export default function ProductQuickLinks({ data }) {
           <h3
             className="font-noto text-clamp14to15 font-bold uppercase tracking-widest text-primary
           ">
-            {getTranslationByKey('Quick Links')}
+            {getTranslationByKey('Quick Links', translations, lang)}
           </h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-y-5 md:gap-x-8 md:gap-y-5">
             {!_.isEmpty(quickLinks) &&
