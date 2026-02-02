@@ -117,7 +117,7 @@ function Filter(props) {
           </span>
           <div className="z-20 flex-grow">
             <SelectDropdown
-              defaultValue={getTranslationByKey('Product Type')}
+              defaultValue={getTranslationByKey('Product Type', translations, lang)}
               items={categories}
               onSelect={(selectedValue) => handleSelect(selectedValue, 'category')}
               selectedValue={{
