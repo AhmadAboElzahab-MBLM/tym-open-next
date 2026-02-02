@@ -2,7 +2,7 @@
 
 import React, { Suspense, useEffect, useState } from 'react';
 import _ from 'lodash';
-import { getByContentType } from '@/services/umbraco';
+import { getByContentType, getTranslations } from '@/services/umbraco';
 import { fetchHeaderProducts } from '@/services/fetch-header-products';
 import BoxedContainer from '@/components/layout/boxed-container';
 import Header from '@/components/header/header';
@@ -66,11 +66,12 @@ export default function Page() {
   const { title, subtitle, text, links } = data[locale];
 
   const handleContentFetch = async () => {
-    const [_products, _settings, _translations] = await Promise.all([
+    const [_products, _settings] = await Promise.all([
       fetchHeaderProducts(lang),
-      getByContentType('settings', region, locale, lang).then((res) => res[0]),
-      getByContentType('translations', region, locale, lang).then((res) => res[0]),
+      getByContentType('settings', region, locale, lang).then((res) => res[0])
     ]);
+
+    const _translations = await getTranslations();
 
     setProducts(_products);
     setSettings(_settings);
