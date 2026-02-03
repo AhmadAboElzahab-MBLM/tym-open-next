@@ -1,4 +1,4 @@
-import { find, isEmpty, get, toLower } from 'lodash';
+import { find, isEmpty, get } from 'lodash';
 
 export function getTranslationByKey(translationKey = '', translations = [], lang = 'en') {
   const currLang = lang === 'en' || lang === 'en-us' ? 'en-US' : lang;
@@ -9,7 +9,7 @@ export function getTranslationByKey(translationKey = '', translations = [], lang
 
   const translation = find(get(filteredItem, 'translations'), ({ iso }) => iso === currLang);
   if (!translation) return translationKey;
-  
+
   const translationValue = get(translation, 'value');
   return translationValue;
 }
