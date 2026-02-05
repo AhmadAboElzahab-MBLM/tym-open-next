@@ -144,7 +144,6 @@ export default async function Page({ params }) {
 
   // const translations = get(translationItems, 'properties.translationItems.items', []);
   const translations = translationItems;
-  console.log('translations', translations);
   const blocks = get(data, 'properties.body.items', []);
   const contentType = get(data, 'contentType', '');
   const bodyData = get(data, 'properties', []);

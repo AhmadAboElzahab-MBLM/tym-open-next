@@ -32,7 +32,7 @@ function FindDealer({ data, id }) {
 
   const regions = {
     en: 'International',
-    de: 'Deutschland',
+    de: 'Europe',
     'en-us': 'North America',
     'en-ko': 'South Korea',
     ko: 'South Korea',
@@ -141,6 +141,9 @@ function FindDealer({ data, id }) {
     if (!_.isEmpty(selectedLocation)) {
       const radius = 200; // Set the radius to 200 miles
       const currRegionOffices = _.get(offices, region, []);
+      console.log("offices", offices);
+      console.log("region", region);
+      console.log("currRegionOffices", currRegionOffices);
       const filtered = _.filter(currRegionOffices, (item) => item.region === region);
       
       // Filter dealers within 200-mile radius using actual distance calculation

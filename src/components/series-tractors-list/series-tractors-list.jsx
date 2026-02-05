@@ -9,7 +9,6 @@ export default function SeriesTractorsList({ data, id, region, locale, lang, pro
   const { title, seriesCategory } = data.properties;
   const [currProduct, setCurrProduct] = useState({});
   const filteredProducts = products.filter((product) => !product.properties.hideFromListing);
-  console.log('products', products);
   sortByEnginePower(filteredProducts);
   const product = _.filter(filteredProducts, (item) => {
     const series = _.get(item, 'properties.series');
