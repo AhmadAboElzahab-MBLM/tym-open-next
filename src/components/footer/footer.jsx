@@ -62,7 +62,6 @@ export default function Footer({ data, region, lang, translations }) {
   const deutschlandText = _.get(data, 'properties.deutschlandText', '');
   const buildYourOwn = paths.includes('build-your-own');
 
-  console.log('deutschlandText region:', data.properties.deutschlandText);
   return (
     <footer
       id={id}

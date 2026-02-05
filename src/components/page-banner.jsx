@@ -1,5 +1,5 @@
 import React from 'react';
-import { map, get, isEmpty } from 'lodash';
+import { map, get, isEmpty, includes } from 'lodash';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -13,10 +13,10 @@ export default function PageBanner({ data, id }) {
   const classname = get(data, 'properties.classname', '');
   const hideGradient = get(data, 'properties.hideGradient', '');
   const keyStats = get(data, 'properties.keyStats.items', []);
-  const productLink = _.get(data, 'properties.productLink[0]', {});
+  const productLink = get(data, 'properties.productLink[0]', {});
   const path = usePathname();
-  const isDave = _.includes(path, 'ko/technology/dave');
-  const isSam = _.includes(path, 'ko/technology/sam');
+  const isDave = includes(path, 'ko/technology/dave');
+  const isSam = includes(path, 'ko/technology/sam');
 
   return (
     <section id={id} className="bg-white pt-[100px] md:pt-[120px] lg:pt-[200px] xl:pt-[284px]">

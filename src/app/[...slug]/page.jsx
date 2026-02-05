@@ -32,12 +32,11 @@ async function getContentByParams(params) {
     // Reconstruct the full path with lang prefix for Umbraco
     const path = `${lang}/${join(params.slug, '/')}`;
 
-    const translations = await getTranslations();
     const [data, settings] = await Promise.all([
       getByPath(path, region),
       getByContentType('settings', region, locale, lang).then((_settings) => _settings[0]),
     ]);
-
+    const translations = await getTranslations();
 
     if (isEmpty(data)) throw new Error('No data fetched from Umbraco.');
 
