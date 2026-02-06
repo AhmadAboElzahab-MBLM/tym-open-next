@@ -16,7 +16,7 @@ export default function GlobalNetwork({ data, id }) {
   const regions = {
     en: 'International',
     ko: 'South Korea',
-    de: 'Deutschland',
+    de: 'Europe',
     'en-ko': 'South Korea',
     'en-us': 'North America',
   };
