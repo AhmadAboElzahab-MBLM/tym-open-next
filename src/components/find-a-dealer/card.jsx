@@ -20,7 +20,7 @@ export default function Card({ item, onAction }) {
   const longitude = location.split(',')[1]?.trim();
   const zip = _.get(item, 'zip', '');
   const category = _.get(item, 'dealer_category', '');
-  const units = { en: 'km', 'en-us': 'miles', 'en-ko': 'km', ko: 'km' };
+  const units = { en: 'km', 'en-us': 'miles', 'en-ko': 'km', ko: 'km', de: 'km' };
 
   const distance = getDistance(geolocation, { latitude, longitude });
   const unit = units[lang];
@@ -88,7 +88,7 @@ export default function Card({ item, onAction }) {
         </div>
       </div>
 
-      {lang === 'en-us' ? (
+      {lang === 'en-us' || lang === 'de' ? (
         <div className="flex justify-between gap-y-2 pt-2 md:gap-y-5">
           <div className="font-noto text-clamp12to15 font-bold">
             Distance away: <span className="text-[#C91820]">{distanceLabel}</span>

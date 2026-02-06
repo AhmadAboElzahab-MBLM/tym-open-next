@@ -31,6 +31,7 @@ function PopupModal({ isOpen, handleClose, item }) {
     'en-us': 'miles',
     'en-ko': 'km',
     ko: 'km',
+    de: 'km',
   };
   const isKO = lang === 'ko' || lang === 'en-ko';
 
@@ -72,8 +73,8 @@ function PopupModal({ isOpen, handleClose, item }) {
               <div className="font-noto text-clamp14to15 text-primary">
               {_.isEmpty(address) || <span dangerouslySetInnerHTML={{ __html: `${address.trim()},` }} />}
                 <br />
-                {city && (lang === 'en' || lang === 'en-us') && <span>{city}, </span>}
-                {state && (lang === 'en' || lang === 'en-us') && <span>{state} </span>}
+                {city && (lang === 'en' || lang === 'en-us' || lang === 'de') && <span>{city}, </span>}
+                {state && (lang === 'en' || lang === 'en-us' || lang === 'de') && <span>{state} </span>}
                 {state && (lang === 'ko' || lang === 'en-ko') && <span>{state}, </span>}
                 {zip && (
                   <>
