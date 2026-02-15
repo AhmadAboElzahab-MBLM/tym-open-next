@@ -1,0 +1,20 @@
+name: Trigger Deploy
+
+on:
+  repository_dispatch:
+    types: [trigger-deploy]
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: Push empty commit
+        run: |
+          git config user.name "deploy-bot"
+          git config user.email "bot@example.com"
+          git commit --allow-empty -m "chore: trigger deploy"
+          git push
